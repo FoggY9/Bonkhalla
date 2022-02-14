@@ -1,5 +1,5 @@
 // Necessary things
-const {Client, Intents} = require('discord.js');
+const {Client, Collection, Intents} = require('discord.js');
 require('dotenv').config();
 
 // Creating bot
@@ -11,13 +11,15 @@ const client = new Client({ intents: [
 client.once('ready', () => {
 	console.log('BBO bot is Online!');
 
-// Presence
+// Presence Customization
 client.user.setActivity('Brawlhalla', { type: 'STREAMING', url: "https://www.twitch.tv/brawlhalla_bangladesh"})
 });
 
-// Login
+// Login With Token
 client.login(process.env['TOKEN']);
 
 
-
 // Event handlers
+client.events = new Collection();
+require('events');
+require('./event_handler')(client)
