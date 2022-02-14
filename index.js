@@ -12,7 +12,7 @@ const client = new Client({ intents: [
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('BBO bot is Online!');
 });
 
 // Login to Discord with your client's token
