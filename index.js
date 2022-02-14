@@ -19,7 +19,6 @@ client.user.setActivity('Brawlhalla', { type: 'STREAMING', url: "https://www.twi
 client.login(process.env['TOKEN']);
 
 
-// Event handlers
+// Event handler
 client.events = new Collection();
-require('events');
 require('./event_handler')(client)
