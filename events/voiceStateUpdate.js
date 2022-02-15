@@ -65,7 +65,6 @@ async function createCustomVc(user){
 
            vc.userLimit = '8';
           await vc.permissionOverwrites.set([
-            {   id: user.id, allow: ['MANAGE_CHANNELS'], },
             {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
           ]);
 
@@ -83,7 +82,6 @@ async function create2sVc(user){
 
     vc.userLimit = '4';
     await vc.permissionOverwrites.set([
-      {   id: user.id, allow: ['MANAGE_CHANNELS'], },
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
     ]);
 
@@ -100,7 +98,6 @@ async function create1sVc(user){
 
     vc.userLimit = '2';
     await vc.permissionOverwrites.set([
-      {   id: user.id, allow: ['MANAGE_CHANNELS'], },
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
     ]);
 
