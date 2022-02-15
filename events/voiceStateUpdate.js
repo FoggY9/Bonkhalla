@@ -62,8 +62,10 @@ async function createCustomVc(user){
           jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
 
            vc.userLimit = '8';
+           vc.rtc_region = "Singapore";
           await vc.permissionOverwrites.set([
             {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
+            {id: '732554753342570516', allow: ['MANAGE_CHANNEL']}
           ]);
 
         })
@@ -79,8 +81,10 @@ async function create2sVc(user){
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
 
     vc.userLimit = '4';
+    vc.rtc_region = "Singapore";
     await vc.permissionOverwrites.set([
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
+      {id: '732554753342570516', allow: ['MANAGE_CHANNEL']}
     ]);
 
   })
@@ -95,8 +99,10 @@ async function create1sVc(user){
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
 
     vc.userLimit = '2';
+    vc.rtc_region = "Singapore";
     await vc.permissionOverwrites.set([
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
+      {id: '732554753342570516', allow: ['MANAGE_CHANNEL']}
     ]);
 
   })
