@@ -39,10 +39,7 @@ if (oldState.channel !== newState.channel && newState.channel !== null && newSta
 
 // Moved vc >> changed vc
 if (oldState.channel && newState.channel) {
-  
     if (oldState.channel !== newState.channel) {
-      if(newState.channel.id===isJtc) 
-      jointocreatechannel(oldState);  
       if (jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`)) {
         var vc = oldState.guild.channels.cache.get(jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`));        if (vc.members.size < 1) { 
           jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
