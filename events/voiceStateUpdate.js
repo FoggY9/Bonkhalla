@@ -3,22 +3,20 @@ const jointocreatemap = new Map();
 
 module.exports = async(client, oldState, newState) => {
 
-    
+
 // Static Id's   
-const jtc_category = '942055598462222381';// join to create
+const jtc_category = '751266531597353040';// join to create
 
-const crt_custom_lobby = '942055598462222383';
-const crt_2s_lobby =     '942055598713888818';
-const crt_1s_lobby =     '942055598713888821';
-
-var isJtc = crt_custom_lobby || crt_2s_lobby || crt_1s_lobby;
+const crt_custom_lobby = '751266533702893578';
+const crt_2s_lobby =     '751269940887289876';
+const crt_1s_lobby =     '751269309065461820';
 
 
 // If Joins Vc
-if (oldState.channel !== newState.channel && newState.channel !== null && newState == isJtc) {
+if (oldState.channel !== newState.channel && newState.channel !== null) {
     if(newState.channel.id == crt_custom_lobby){ createCustomVc(newState);}
-    else if(newState.channel.id == crt_2s_lobby){    create2sVc(newState);}
-    else if(newState.channel.id == crt_1s_lobby){    create1sVc(newState);}
+    else if(newState.channel.id == crt_2s_lobby){create2sVc(newState);}
+    else if(newState.channel.id == crt_1s_lobby){create1sVc(newState);}
   }
 
 
@@ -56,7 +54,7 @@ if (oldState.channel && newState.channel) {
 // VC CREATE FUNTIONS
 async function createCustomVc(user){
 
-        console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created a Room")
+        console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created Custom Lobby")
 
         await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
         .then(async vc => {
