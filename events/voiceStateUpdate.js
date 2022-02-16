@@ -4,12 +4,15 @@ const jointocreatemap = new Map();
 module.exports = async(client, oldState, newState) => {
 
 
-// Static Id's   
-const jtc_category = '751266531597353040';// join to create
 
-const crt_custom_lobby = '751266533702893578';
-const crt_2s_lobby =     '751269940887289876';
-const crt_1s_lobby =     '751269309065461820';
+const { JTC_CATEGORY, VC_ONE, VC_TWO, VC_THREE } = require('./config.json')
+
+// Static Channel Id's   
+const jtc_category = JTC_CATEGORY;//  JTC = join to create
+
+const crt_custom_lobby = VC_ONE;
+const crt_2s_lobby = VC_TWO;
+const crt_1s_lobby = VC_THREE;
 
 
 // If Joins Vc
@@ -38,9 +41,10 @@ if (oldState.channel !== newState.channel && newState.channel !== null) {
 // Moved vc >> changed vc
 if (oldState.channel && newState.channel) {
     if (oldState.channel !== newState.channel) {
-      if (jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`)) {
-        var vc = oldState.guild.channels.cache.get(jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`));        if (vc.members.size < 1) { 
-          jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
+      if (jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`)) 
+      {   var vc = oldState.guild.channels.cache.get(jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`));
+              if (vc.members.size < 1)
+               { jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
           console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room Deleted")
           return vc.delete(); 
       }
