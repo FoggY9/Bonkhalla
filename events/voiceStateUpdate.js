@@ -5,14 +5,13 @@ module.exports = async(client, oldState, newState) => {
 
 
 
-const { JTC_CATEGORY, VC_ONE, VC_TWO, VC_THREE } = require('/config.json')
 
 // Static Channel Id's   
-const jtc_category = JTC_CATEGORY;//  JTC = join to create
+const jtc_category = "751266531597353040";//  JTC = join to create
 
-const crt_custom_lobby = VC_ONE;
-const crt_2s_lobby = VC_TWO;
-const crt_1s_lobby = VC_THREE;
+const crt_custom_lobby = "751266533702893578";
+const crt_2s_lobby = "751269940887289876";
+const crt_1s_lobby = "751269309065461820";
 
 
 // If Joins Vc
