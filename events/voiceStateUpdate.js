@@ -58,23 +58,22 @@ if (oldState.channel && newState.channel) {
 // VC CREATE FUNTIONS
 async function createCustomVc(user){
 
-        console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created Custom Lobby")
+  console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created Custom Lobby")
 
-        await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
-        .then(async vc => {
-          user.setChannel(vc);
-          jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
+  await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
+  .then(async vc => {
+    jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
+    await user.setChannel(vc);
 
-           vc.userLimit = '8';
-           vc.rtcRegion = "singapore";
-           vc.rtc_region = "singapore";
-          await vc.permissionOverwrites.set([
-            {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
-            {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
-          ]);
-
-        })
-        .catch(err => console.log(err))
+      vc.userLimit = '8';
+      vc.rtcRegion = "singapore";
+      vc.rtc_region = "singapore";
+    await vc.permissionOverwrites.set([
+      {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
+      {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
+    ]);
+  })
+  .catch(err => console.log(err))
 
 }
 async function create2sVc(user){
@@ -82,8 +81,8 @@ async function create2sVc(user){
 
   await user.guild.channels.create(`2v2 Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
   .then(async vc => {
-    user.setChannel(vc);
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
+   await user.setChannel(vc);
 
     vc.userLimit = '4';
     vc.rtcRegion = "singapore";
@@ -92,7 +91,6 @@ async function create2sVc(user){
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
-
   })
   .catch(err => console.log(err))
 }
@@ -101,8 +99,8 @@ async function create1sVc(user){
 
   await user.guild.channels.create(`1v1 Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
   .then(async vc => {
-    user.setChannel(vc);
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
+  await  user.setChannel(vc);
 
     vc.userLimit = '2';
     vc.rtcRegion = "singapore";
@@ -111,7 +109,6 @@ async function create1sVc(user){
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
-
   })
   .catch(err => console.log(err))
 }
