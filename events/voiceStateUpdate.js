@@ -5,7 +5,7 @@ module.exports = async(client, oldState, newState) => {
 
 
 
-const { JTC_CATEGORY, VC_ONE, VC_TWO, VC_THREE } = require('./config.json')
+const { JTC_CATEGORY, VC_ONE, VC_TWO, VC_THREE } = require('/config.json')
 
 // Static Channel Id's   
 const jtc_category = JTC_CATEGORY;//  JTC = join to create
