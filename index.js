@@ -9,7 +9,7 @@ const client = new Client({ intents: [
 
 // When ready
 client.once('ready', () => {
-	console.log('BBO bot is Online!');
+	console.log('BBO test bot is Online!');
 
 // Presence Customization
 client.user.setActivity('Brawlhalla', { type: 'STREAMING', url: "https://www.twitch.tv/brawlhalla_bangladesh"})

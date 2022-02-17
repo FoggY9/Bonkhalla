@@ -3,11 +3,10 @@ const jointocreatemap = new Map();
 
 module.exports = async(client, oldState, newState) => {
 
-const { Categry, VcOne, VcTwo, VcThree } = require('../config.json')
+const { Category, VcOne, VcTwo, VcThree } = require('../config.json')
 
 
 // Static Channel Id's   
-const jtc_category = Categry;//  JTC = join to create
 
 const crt_custom_lobby = VcOne;
 const crt_2s_lobby = VcTwo;
@@ -29,7 +28,8 @@ if (oldState.channel !== newState.channel && newState.channel !== null) {
     if (vc.members.size < 1) { 
       jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
       console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
-      return vc.delete(); 
+      return vc.delete()
+      .catch(err => console.log(err)); 
   }
     else {
     }
@@ -45,7 +45,8 @@ if (oldState.channel && newState.channel) {
               if (vc.members.size < 1)
                { jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
           console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room Deleted")
-          return vc.delete(); 
+          return vc.delete()
+          .catch(err => console.log(err)); 
       }
       else {
       }
@@ -59,7 +60,7 @@ async function createCustomVc(user){
 
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created Custom Lobby")
 
-  await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
+let newvc = await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent: Category,})
   .then(async vc => {
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
     await user.setChannel(vc);
@@ -72,13 +73,14 @@ async function createCustomVc(user){
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
 
+  setTimeout(() => {checkVc(newvc)}, 1000 * 30);
 }
 async function create2sVc(user){
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created 2v2 lobby")
 
-  await user.guild.channels.create(`2v2 Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
+  let newvc = await user.guild.channels.create(`2v2 Lobby`, {  type: "GUILD_VOICE",  parent: Category,})
   .then(async vc => {
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
    await user.setChannel(vc);
@@ -91,12 +93,14 @@ async function create2sVc(user){
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+
+  setTimeout(() => {checkVc(newvc)}, 1000 * 30);
 }
 async function create1sVc(user){
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created 1v1 lobby")
 
-  await user.guild.channels.create(`1v1 Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
+  let newvc = await user.guild.channels.create(`1v1 Lobby`, {  type: "GUILD_VOICE",  parent: Category,})
   .then(async vc => {
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
   await  user.setChannel(vc);
@@ -109,6 +113,17 @@ async function create1sVc(user){
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+
+  setTimeout(() => {checkVc(newvc)}, 1000 * 30);
+}
+
+
+
+function checkVc(newvc){
+console.log(newvc);
+//if channel exist
+// if no one here, delete that
+//also delete map
 }
 }
