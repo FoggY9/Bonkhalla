@@ -72,10 +72,12 @@ let newvc = await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOI
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
+    setTimeout(() => {checkVc(vc)}, 1000 * 30);
   })
   .catch(err => console.log(err));
 
-  setTimeout(() => {checkVc(newvc)}, 1000 * 30);
+
+
 }
 async function create2sVc(user){
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created 2v2 lobby")
@@ -92,10 +94,10 @@ async function create2sVc(user){
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
+    setTimeout(() => {checkVc(vc)}, 1000 * 30);
   })
   .catch(err => console.log(err));
 
-  setTimeout(() => {checkVc(newvc)}, 1000 * 30);
 }
 async function create1sVc(user){
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created 1v1 lobby")
@@ -112,18 +114,23 @@ async function create1sVc(user){
       {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
+    setTimeout(() => {checkVc(vc)}, 1000 * 30);
   })
   .catch(err => console.log(err));
 
-  setTimeout(() => {checkVc(newvc)}, 1000 * 30);
 }
 
 
 
-function checkVc(newvc){
-console.log(newvc);
-//if channel exist
-// if no one here, delete that
-//also delete map
+function checkVc(vc){
+let channel = client.channels.get(vc.id);
+if(!channel) return;
+if (vc.members.size < 1) { 
+  jointocreatemap.delete(`tempvoicechannel_${vc.guild.id}_${vc.channel.id}`); 
+  console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
+  return vc.delete()
+  .catch(err => console.log(err)); 
+}
+
 }
 }
