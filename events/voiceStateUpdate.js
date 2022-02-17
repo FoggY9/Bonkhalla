@@ -29,7 +29,8 @@ if (oldState.channel !== newState.channel && newState.channel !== null) {
     if (vc.members.size < 1) { 
       jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
       console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
-      return vc.delete(); 
+      return vc.delete()
+            .catch(err => console.log(err)); 
   }
     else {
     }
@@ -45,7 +46,8 @@ if (oldState.channel && newState.channel) {
               if (vc.members.size < 1)
                { jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
           console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room Deleted")
-          return vc.delete(); 
+          return vc.delete()
+            .catch(err => console.log(err)); 
       }
       else {
       }
