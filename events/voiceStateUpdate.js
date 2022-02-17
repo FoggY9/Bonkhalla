@@ -3,15 +3,15 @@ const jointocreatemap = new Map();
 
 module.exports = async(client, oldState, newState) => {
 
-
+const { Categry, VcOne, VcTwo, VcThree } = require('../config.json')
 
 
 // Static Channel Id's   
-const jtc_category = "751266531597353040";//  JTC = join to create
+const jtc_category = Categry;//  JTC = join to create
 
-const crt_custom_lobby = "751266533702893578";
-const crt_2s_lobby = "751269940887289876";
-const crt_1s_lobby = "751269309065461820";
+const crt_custom_lobby = VcOne;
+const crt_2s_lobby = VcTwo;
+const crt_1s_lobby = VcThree;
 
 
 // If Joins Vc
