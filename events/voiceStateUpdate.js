@@ -3,15 +3,14 @@ const jointocreatemap = new Map();
 
 module.exports = async(client, oldState, newState) => {
 
-
+const { Category, VcOne, VcTwo, VcThree } = require('../config.json')
 
 
 // Static Channel Id's   
-const jtc_category = "751266531597353040";//  JTC = join to create
 
-const crt_custom_lobby = "751266533702893578";
-const crt_2s_lobby = "751269940887289876";
-const crt_1s_lobby = "751269309065461820";
+const crt_custom_lobby = VcOne;
+const crt_2s_lobby = VcTwo;
+const crt_1s_lobby = VcThree;
 
 
 // If Joins Vc
@@ -30,7 +29,7 @@ if (oldState.channel !== newState.channel && newState.channel !== null) {
       jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
       console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
       return vc.delete()
-            .catch(err => console.log(err)); 
+      .catch(err => console.log(err)); 
   }
     else {
     }
@@ -47,7 +46,7 @@ if (oldState.channel && newState.channel) {
                { jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
           console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room Deleted")
           return vc.delete()
-            .catch(err => console.log(err)); 
+          .catch(err => console.log(err)); 
       }
       else {
       }
@@ -61,10 +60,15 @@ async function createCustomVc(user){
 
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created Custom Lobby")
 
-  await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
+await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent: Category,})
   .then(async vc => {
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
-    await user.setChannel(vc);
+
+    try {
+     await user.setChannel(vc);
+    } catch (error) {
+      setTimeout(() => {checkVc(vc)}, 1000 * 30);
+    }
 
       vc.userLimit = '8';
       vc.rtcRegion = "singapore";
@@ -74,16 +78,22 @@ async function createCustomVc(user){
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+
+
 
 }
 async function create2sVc(user){
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created 2v2 lobby")
 
-  await user.guild.channels.create(`2v2 Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
+await user.guild.channels.create(`2v2 Lobby`, {  type: "GUILD_VOICE",  parent: Category,})
   .then(async vc => {
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
-   await user.setChannel(vc);
+    try {
+    await user.setChannel(vc);
+    } catch (error) {
+      setTimeout(() => {checkVc(vc)}, 1000 * 30);
+    }
 
     vc.userLimit = '4';
     vc.rtcRegion = "singapore";
@@ -93,16 +103,21 @@ async function create2sVc(user){
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+
 }
 async function create1sVc(user){
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created 1v1 lobby")
 
-  await user.guild.channels.create(`1v1 Lobby`, {  type: "GUILD_VOICE",  parent: jtc_category,})
+await user.guild.channels.create(`1v1 Lobby`, {  type: "GUILD_VOICE",  parent: Category,})
   .then(async vc => {
     jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
-  await  user.setChannel(vc);
 
+    try {
+     await user.setChannel(vc);
+    } catch (error) {
+      setTimeout(() => {checkVc(vc)}, 1000 * 30);
+    }
     vc.userLimit = '2';
     vc.rtcRegion = "singapore";
     vc.rtc_region = "singapore";
@@ -111,6 +126,26 @@ async function create1sVc(user){
       {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
     ]);
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+
+}
+
+
+// Checking if oneone is in that vc
+function checkVc(vc){
+  try {
+    let channel = client.channels.cache.get(vc.id);
+if(!channel) return;
+if (vc.members.size < 1) { 
+  jointocreatemap.delete(`tempvoicechannel_${vc.guild.id}_${vc.id}`); 
+  console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
+  return vc.delete()
+  .catch(err => console.log(err)); 
+}
+  } catch (error) {
+    console.log(error);
+  }
+
+
 }
 }
