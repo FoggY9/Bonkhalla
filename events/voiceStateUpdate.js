@@ -74,8 +74,7 @@ await user.guild.channels.create(`Custom Lobby`, {  type: "GUILD_VOICE",  parent
       vc.rtcRegion = "singapore";
       vc.rtc_region = "singapore";
     await vc.permissionOverwrites.set([
-      {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
-      {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
+      {   id: user.guild.id, allow: ['VIEW_CHANNEL'], }
     ]);
   })
   .catch(err => console.log(err));
@@ -99,8 +98,7 @@ await user.guild.channels.create(`2v2 Lobby`, {  type: "GUILD_VOICE",  parent: C
     vc.rtcRegion = "singapore";
     vc.rtc_region = "singapore";
     await vc.permissionOverwrites.set([
-      {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
-      {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
+      {   id: user.guild.id, allow: ['VIEW_CHANNEL'], }
     ]);
   })
   .catch(err => console.log(err));
@@ -122,8 +120,7 @@ await user.guild.channels.create(`1v1 Lobby`, {  type: "GUILD_VOICE",  parent: C
     vc.rtcRegion = "singapore";
     vc.rtc_region = "singapore";
     await vc.permissionOverwrites.set([
-      {   id: user.guild.id, allow: ['VIEW_CHANNEL'], },
-      {id: '732554753342570516', allow: ['MANAGE_CHANNELS']}
+      {   id: user.guild.id, allow: ['VIEW_CHANNEL'], }
     ]);
   })
   .catch(err => console.log(err));
@@ -139,8 +136,7 @@ if(!channel) return;
 if (vc.members.size < 1) { 
   jointocreatemap.delete(`tempvoicechannel_${vc.guild.id}_${vc.id}`); 
   console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
-  return vc.delete()
-  .catch(err => console.log(err)); 
+  return vc.delete();
 }
   } catch (error) {
     console.log(error);
