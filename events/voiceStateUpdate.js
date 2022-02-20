@@ -18,7 +18,6 @@ if (oldState.channel !== newState.channel && newState.channel !== null) {
     else if(newState.channel.id == crt_1s_lobby){CreateVc(newState, '1v1 Lobby', '2');}
   }
 
-
 // If Leaves Vc
   if (oldState.channel !== newState.channel && newState.channel === null) {
   if (client.jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`)) {
@@ -29,11 +28,8 @@ if (oldState.channel !== newState.channel && newState.channel !== null) {
       return vc.delete()
       .catch(err => console.log(err)); 
   }
-    else {
-    }
   }
 }
-
 
 // Moved vc >> changed vc
 if (oldState.channel && newState.channel) {
@@ -46,36 +42,26 @@ if (oldState.channel && newState.channel) {
           return vc.delete()
           .catch(err => console.log(err)); 
       }
-      else {
-      }
       }
     }
 }
 
-
 // VC CREATE FUNCTION
-
 async function CreateVc(user, name, userlimit,){
 
   console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created " + name)
-
 await user.guild.channels.create(name, {  type: "GUILD_VOICE",  parent: Category,})
   .then(async vc => {
     client.jointocreatemap.set(`tempvoicechannel_${vc.guild.id}_${vc.id}`, vc.id);
+    try {await user.setChannel(vc);}
+    catch (error) {setTimeout(() => {checkVc(vc)}, 1000 * 30);}
 
-    try {
-     await user.setChannel(vc);
-    } catch (error) {
-      setTimeout(() => {checkVc(vc)}, 1000 * 30);
-    }
       vc.userLimit = userlimit;
       vc.rtcRegion = "singapore";
       vc.rtc_region = "singapore";
     await vc.permissionOverwrites.set([
-      {   id: user.guild.id, allow: ['VIEW_CHANNEL', 'CONNECT'], }
-    ]);
-  })
-  .catch(err => console.log(err));
+      {   id: user.guild.id, allow: ['VIEW_CHANNEL', 'CONNECT'], }]);
+  }).catch(err => console.log(err));
 }
 
 
@@ -88,11 +74,6 @@ if (vc.members.size < 1) {
   client.jointocreatemap.delete(`tempvoicechannel_${vc.guild.id}_${vc.id}`); 
   console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
   return vc.delete();
-}
-  } catch (error) {
-    console.log(error);
-  }
-
-
+}} catch (error) {console.log(error);}
 }
 }
