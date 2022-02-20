@@ -18,6 +18,9 @@ const client = new Client({ intents: [
 // Login With Token
 client.login(process.env['TOKEN']);
 
+// Vc Record Map 
+client.jointocreatemap = new Map();
+
 // Event handler
 client.events = new Collection();
 require('./event_handler')(client)
