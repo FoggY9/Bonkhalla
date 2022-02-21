@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Brawlhalla bangladesh official bot is Online'));
 app.listen(process.env.PORT || port, () => console.log(`Example app listening at http://localhost:${port}`));
 
 // Creating bot
@@ -17,6 +17,9 @@ const client = new Client({ intents: [
 
 // Login With Token
 client.login(process.env['TOKEN']);
+
+// Vc Record Map 
+client.jointocreatemap = new Map();
 
 // Event handler
 client.events = new Collection();
