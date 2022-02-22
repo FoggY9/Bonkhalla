@@ -1,35 +1,6 @@
 
 module.exports = async(client, oldState, newState) => {
 
-<<<<<<< Updated upstream
-const { Category, VcOne, VcTwo, VcThree } = require('../config.json')
-
-
-// Static Channel Id's   
-
-const crt_custom_lobby = VcOne;
-const crt_2s_lobby = VcTwo;
-const crt_1s_lobby = VcThree;
-
-
-// If Joins Vc
-if (oldState.channel !== newState.channel && newState.channel !== null) {
-    if(newState.channel.id == crt_custom_lobby){ CreateVc(newState, 'Custom Lobby', '8');}
-    else if(newState.channel.id == crt_2s_lobby){CreateVc(newState, '2v2 Lobby', '4');}
-    else if(newState.channel.id == crt_1s_lobby){CreateVc(newState, '1v1 Lobby', '2');}
-  }
-
-// If Leaves Vc
-  if (oldState.channel !== newState.channel && newState.channel === null) {
-  if (client.jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`)) {
-    var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`));
-    if (vc.members.size < 1) { 
-      client.jointocreatemap.delete(`tempvoicechannel_${oldState.guild.id}_${oldState.channel.id}`); 
-      console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
-      return vc.delete()
-      .catch(err => console.log(err)); 
-  }
-=======
   const { Category, VcOne, VcTwo, VcThree } = require('../config.json')
   
   
@@ -104,9 +75,8 @@ if (oldState.channel !== newState.channel && newState.channel !== null) {
     console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
     return vc.delete();
   }} catch (error) {console.log(error);}
->>>>>>> Stashed changes
   }
-}
+
 
 // Moved vc >> changed vc
 if (oldState.channel && newState.channel) {
