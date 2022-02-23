@@ -2,7 +2,7 @@
   "name": "bbo-discord-bot",
   "version": "1.0.0",
   "description": "a temp vc bot for bbo",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
