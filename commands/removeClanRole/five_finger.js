@@ -22,7 +22,7 @@ if(message.mentions.members.size == 0) return message.channel.send({embeds: [pls
 
     message.mentions.members.forEach(membr => {
 let alrdyhas = new MessageEmbed().setColor('GREY').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** doesn't has this clan role`)
-let done = new MessageEmbed().setColor('BLUE').setDescription(`🔵 **|** **${membr.user.username + '#' + membr.user.discriminator}** has removed **${clanName}** Clan Role`)
+let done = new MessageEmbed().setColor('BLUE').setDescription(`🔵 **|** **${membr.user.username + '#' + membr.user.discriminator}** has removed **${clanName}** Clan Role`).setFooter({ text: `role changed by ${message.author.username}`});
 
         if(!membr.roles.cache.has(roleid)){message.channel.send({embeds: [alrdyhas]})}
         else if(membr.roles.cache.has(roleid)){
