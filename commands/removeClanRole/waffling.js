@@ -5,6 +5,7 @@ module.exports = {
   aliases: ['remove7t1'],
   description: "removes 7t1 role of a member",
  async execute(client, message) {
+  message.delete();
 
 const clanName = '7t1 Bangladesh'
 const {LeaderRoleId} = require('../../config.json');
