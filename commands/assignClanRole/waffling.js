@@ -1,14 +1,14 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "addrolebed",
-  aliases: ['addbed', 'givebed'],
-  description: "adds bed role to a member",
+  name: "addrolewaff",
+  aliases: ['addwaff', 'givewaff',],
+  description: "adds waff role to a member",
  async execute(client, message) {
 
-const clanName = 'bedroom community'
+const clanName = 'Waffling'
 const {LeaderRoleId} = require('../config.json');
-const roleid = '851302141499015208';
+const roleid = '946810821781127169';
 
 let accessDn = new MessageEmbed().setColor('RED').setDescription(`❌ **|** ${message.author} You can't give roles to members, you dont have permission \nrequired-role: **Clan Leader**`)
 let plsMntn = new MessageEmbed().setColor('RED').setDescription(`⭕ **|** ${message.author} please mention someone`)

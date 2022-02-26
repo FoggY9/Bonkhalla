@@ -1,14 +1,14 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "removerolecor",
-  aliases: ['removecor'],
-  description: "removes cor role of a member",
+  name: "removerole7t1",
+  aliases: ['remove7t1'],
+  description: "removes 7t1 role of a member",
  async execute(client, message) {
 
-const clanName = 'cornaxian'
+const clanName = '7t1 Bangladesh'
 const {LeaderRoleId} = require('../config.json');
-const roleid = '850735994043236353';
+const roleid = '946810821781127169';
 
 let accessDn = new MessageEmbed().setColor('RED').setDescription(`❌ **|** ${message.author} You can't remove roles of members, you dont have permission \nrequired-role: **Clan Leader**`)
 let plsMntn = new MessageEmbed().setColor('RED').setDescription(`⭕ **|** ${message.author} please mention someone`)

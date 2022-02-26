@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "addroleper",
-  aliases: ['addper', 'addperrole','giveroleper', 'giveper', 'giveperrole'],
+  aliases: ['addper', 'giveper'],
   description: "adds per role to a member",
  async execute(client, message) {
 

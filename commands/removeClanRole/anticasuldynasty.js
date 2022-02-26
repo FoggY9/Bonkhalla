@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "removeroleant",
-  aliases: ['removeant', 'removeantrole'],
+  aliases: ['removeant'],
   description: "removes ant role of a member",
  async execute(client, message) {
 
