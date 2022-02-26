@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "addrolekhu",
+  name: "khu_add",
   aliases: ['addkhu', 'givekhu'],
   description: "adds khu role to a member",
  async execute(client, message) {
