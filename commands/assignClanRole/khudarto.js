@@ -7,7 +7,7 @@ module.exports = {
  async execute(client, message) {
 
 const clanName = 'khudarto'
-const {LeaderRoleId} = require('../config.json');
+const {LeaderRoleId} = require('../../config.json');
 const roleid = '850939055872147456';
 
 let accessDn = new MessageEmbed().setColor('RED').setDescription(`❌ **|** ${message.author} You can't give roles to members, you dont have permission \nrequired-role: **Clan Leader**`)

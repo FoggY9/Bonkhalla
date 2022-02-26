@@ -7,7 +7,7 @@ module.exports = {
  async execute(client, message) {
 
 const clanName = 'delta core'
-const {LeaderRoleId} = require('../config.json');
+const {LeaderRoleId} = require('../../config.json');
 const roleid = '777570842090668042';
 
 let accessDn = new MessageEmbed().setColor('RED').setDescription(`❌ **|** ${message.author} You can't remove roles of members, you dont have permission \nrequired-role: **Clan Leader**`)

@@ -7,7 +7,7 @@ module.exports = {
  async execute(client, message) {
 
 const clanName = 'aqua esports'
-const {LeaderRoleId} = require('../config.json');
+const {LeaderRoleId} = require('../../config.json');
 const roleid = '941241546597072896';
 
 let accessDn = new MessageEmbed().setColor('RED').setDescription(`❌ **|** ${message.author} You can't remove roles of members, you dont have permission \nrequired-role: **Clan Leader**`)
