@@ -15,7 +15,7 @@ let plsMntn = new MessageEmbed().setColor('RED').setDescription(`⭕ **|** ${mes
 
 
 if(!message.member.roles.cache.has(LeaderRoleId)){
-    return message.channel.send({embeds: accessDn})
+    return message.channel.send({embeds: [accessDn]})
 }
 
 if(message.mentions.members.size == 0) return message.channel.send({embeds: [plsMntn]})

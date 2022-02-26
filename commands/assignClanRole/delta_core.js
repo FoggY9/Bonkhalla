@@ -14,7 +14,7 @@ let accessDn = new MessageEmbed().setColor('RED').setDescription(`❌ **|** ${me
 let plsMntn = new MessageEmbed().setColor('RED').setDescription(`⭕ **|** ${message.author} please mention someone`)
 
 
-if(!message.member.roles.cache.has(LeaderRoleId)) return message.channel.send({embeds: accessDn})
+if(!message.member.roles.cache.has(LeaderRoleId)) return message.channel.send({embeds: [accessDn]})
 
 
 if(message.mentions.members.size == 0) return message.channel.send({embeds: [plsMntn]})
