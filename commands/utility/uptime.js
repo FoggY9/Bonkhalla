@@ -14,6 +14,6 @@ module.exports = {
   
       return message
         .channel.send({ content: `Uptime: ${days} day(s),${hours} hours, ${minutes} minutes, ${seconds} seconds`})
-        .then(msg => { setTimeout(() => msg.delete(), 6 * 1000)}).catch(console.error);
+        .catch(console.error);
     }
   };
