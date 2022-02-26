@@ -1,13 +1,13 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "removerole7t1",
-  aliases: ['remove7t1'],
-  description: "removes 7t1 role of a member",
+  name: "removerolewaf",
+  aliases: ['removewaf'],
+  description: "removes waf role of a member",
  async execute(client, message) {
   message.delete();
 
-const clanName = '7t1 Bangladesh'
+const clanName = 'waffling'
 const {LeaderRoleId} = require('../../config.json');
 const roleid = '946810821781127169';
 
