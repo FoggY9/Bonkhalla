@@ -8,6 +8,7 @@ module.exports = {
   message.delete();
 
 const clanName = 'waffling'
+
 const {LeaderRoleId} = require('../../config.json');
 const roleid = '946810821781127169';
 
