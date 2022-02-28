@@ -5,6 +5,7 @@ module.exports = {
   aliases: ['addant', 'giveant'],
   description: "adds ant role to a member",
  async execute(client, message) {
+  message.delete();
 
 const clanName = 'anti_casual_dynasty'
 const {LeaderRoleId} = require('../../config.json');

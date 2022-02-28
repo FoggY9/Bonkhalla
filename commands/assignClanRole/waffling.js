@@ -5,6 +5,7 @@ module.exports = {
   aliases: ['addwaff', 'givewaff',],
   description: "adds waff role to a member",
  async execute(client, message) {
+  message.delete();
 
 const clanName = 'Waffling'
 const {LeaderRoleId} = require('../../config.json');

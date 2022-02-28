@@ -13,7 +13,7 @@ app.listen(process.env.PORT || port, () => console.log(`Example app listening at
 // Creating bot
 const client = new Client({ intents: [
     Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS,  Intents.FLAGS.GUILD_VOICE_STATES,
-    Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
+    Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
 // Login With Token
 client.login(process.env['TOKEN']);

@@ -5,6 +5,7 @@ module.exports = {
   aliases: ['addsil', 'givesil'],
   description: "adds sil role to a member",
  async execute(client, message) {
+  message.delete();
 
 const clanName = 'silent cosmos'
 const {LeaderRoleId} = require('../../config.json');

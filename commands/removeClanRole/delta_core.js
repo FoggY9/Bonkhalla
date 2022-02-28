@@ -5,6 +5,7 @@ module.exports = {
   aliases: ['removedel'],
   description: "removes del role of a member",
  async execute(client, message) {
+  message.delete();
 
 const clanName = 'delta core'
 const {LeaderRoleId} = require('../../config.json');

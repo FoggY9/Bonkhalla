@@ -5,8 +5,10 @@ module.exports = {
   aliases: ['removewaf'],
   description: "removes waf role of a member",
  async execute(client, message) {
+  message.delete();
 
-const clanName = 'Wafling'
+const clanName = 'waffling'
+
 const {LeaderRoleId} = require('../../config.json');
 const roleid = '946810821781127169';
 
