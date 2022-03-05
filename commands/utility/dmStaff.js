@@ -7,7 +7,7 @@ module.exports = {
 async execute(client, message, args) {
     const perms = ['ADMINISTRATOR'];
     if(!message.member.permissions.has(perms)){return message.channel.send({content: 'you dont have permissions to use this command'})}
-    else if(!args.length) return message.channel.send('ki message diben sheta to bolen \n what do you want send?');
+    else if(!args.length) return message.channel.send('ki message diben sheta to bolen \nwhat do you want to send?');
 
 let staffs = [];
 const {Staff, Jmod, Mod} = require('../../config.json');

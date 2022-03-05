@@ -1,5 +1,4 @@
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
-const { lazyrouter } = require("express/lib/application");
 
 module.exports = {
   name: "aboutus69",
@@ -14,7 +13,8 @@ let embed = new MessageEmbed()
 .setAuthor({name: 'Brawlhalla Bangladesh', iconURL: 'https://i.imgur.com/tZ2sJum.png'})
 .setFooter({ text: 'Email : brawlhallabangladeshofficial@gmail.com', iconURL: 'https://i.imgur.com/tZ2sJum.png' })
 .setDescription(`The Server **Brawlhalla Bangladesh Official** was created to gather Brawlhalla players from around our country. It's a gaming community of more than thousand people of same interest .\n\nGamer's gather here to discuss about the game , Play together , Find Teammates, Participating in tournaments. \n\n`)
-.addField('• Official Pertners', '>  Azure Spirit • [Link](https://discord.gg/mFB59MeuKf)\n> Carnales • [Link](https://discord.gg/XeUp5kraXy)\n> MazeCity • [Link](https://discord.gg/Mbp9NKDhaq)')
+.addField('• Official Partners', '>  Azure Spirit • [Link](https://discord.gg/mFB59MeuKf)\n> Carnales • [Link](https://discord.gg/XeUp5kraXy)\n> MazeCity • [Link](https://discord.gg/Mbp9NKDhaq)')
+.setImage('https://i.imgur.com/JA47rpX.jpg')
 
 let row = new MessageActionRow()
 .addComponents(
@@ -35,12 +35,12 @@ let row = new MessageActionRow()
 ).addComponents(
     new MessageButton()
         .setURL('https://www.facebook.com/BrawlhallaBD')
-        .setLabel('Facebook Page')
+        .setLabel('Fb Page')
         .setStyle('LINK'),
 ).addComponents(
     new MessageButton()
         .setURL('https://www.facebook.com/groups/732780960995186')
-        .setLabel('Facebook Group')
+        .setLabel('Fb Group')
         .setStyle('LINK'),
 )
 let row2 = new MessageActionRow()
