@@ -22,7 +22,7 @@ if(message.mentions.members.size == 0) return message.channel.send({embeds: [pls
 
     message.mentions.members.forEach(membr => {
 let alrdyhas = new MessageEmbed().setColor('YELLOW').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** already has this clan role`)
-let done = new MessageEmbed().setColor('GREEN').setDescription(`🟢 **|** **${membr.user.username + '#' + membr.user.discriminator}** has added **${clanName}** Clan Role`)
+let done = new MessageEmbed().setColor('GREEN').setDescription(`🟢 **|** **${membr.user.username + '#' + membr.user.discriminator}** has added **${clanName}** Clan Role`).setTimestamp()
 
 
         if(membr.roles.cache.has(roleid)){message.channel.send({embeds: [alrdyhas]})}
