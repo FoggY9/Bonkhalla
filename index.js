@@ -25,6 +25,6 @@ client.jointocreatemap = new Map();
 client.commands = new Collection();
 client.events = new Collection();
 
-['command_handler', 'event_handler'].forEach(handler =>{
+['command_handler', 'event_handler', 'crash_handler'].forEach(handler =>{
   require(`./${handler}`)(client)
 })
