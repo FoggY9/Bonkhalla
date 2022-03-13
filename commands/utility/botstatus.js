@@ -13,9 +13,9 @@ module.exports = {
 let embed = new MessageEmbed()
 .setColor('#00fff7')
 .setTitle('Bot Status')
-.addField(' Avarage Bot Ping ', `${Math.round(message.client.ws.ping)} ms`, true)
-.addField(' Uptime ', `${days}d, ${hours}h, ${minutes}m,`, true)
-.addField(' Total Commands ', `${client.commands.size}`, true)
+.addField('| Avarage Bot Ping |', `| ${Math.round(message.client.ws.ping)} ms |`, true)
+.addField('| Uptime |', `| ${days}d, ${hours}h, ${minutes}m |`, true)
+.addField('| Total Commands |', `| ${client.commands.size} |`, true)
 .setTimestamp()
 
 
