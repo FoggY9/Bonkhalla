@@ -13,13 +13,6 @@ let PREFIX = process.env['PREFIX'];
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const commandName = args.shift().toLowerCase();
 
-
-if (message.content.replace(/\s/g, '') === `<@!${client.user.id}>`) {
-  let responseEmbed = new MessageEmbed()
-     .setColor('#0099ff')
-     .setDescription(`Do You Need Any help\n if yes, contact to server staffs or founders`);
-     message.channel.send({ embeds: [responseEmbed]});
-}
   const command =
     client.commands.get(commandName) ||
     client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));

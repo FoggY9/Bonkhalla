@@ -16,6 +16,7 @@ let embed = new MessageEmbed()
 .addField('| Average Bot Ping |', `| ${Math.round(message.client.ws.ping)} ms |`, true)
 .addField('| Uptime |', `| ${days}d, ${hours}h, ${minutes}m |`, true)
 .addField('| Total Commands |', `| ${client.commands.size} |`, true)
+.setFooter({text: 'use ^cmd to check all commands', iconURL: 'https://i.imgur.com/tZ2sJum.png'})
 .setTimestamp()
 
 

@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "dmstaff",
   aliases: ['dmstaffs'],
-  description: "(beta) dm staff team",
+  description: " dm staff team",
 async execute(client, message, args) {
     const perms = ['ADMINISTRATOR'];
     if(!message.member.permissions.has(perms)){return message.channel.send({content: 'you dont have permissions to use this command'})}
