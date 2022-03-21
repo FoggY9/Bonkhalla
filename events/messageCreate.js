@@ -22,7 +22,7 @@ let PREFIX = process.env['PREFIX'];
         command.execute(client, message, args);
       } catch (error) {
         console.error(error);
-        message.reply("There was an error executing that command.").then(msg => {
+        message.reply("Error occourred, cant run this command.").then(msg => {
           setTimeout(() => msg.delete(), 7 * 1000)
         }).catch(console.error);
       }
