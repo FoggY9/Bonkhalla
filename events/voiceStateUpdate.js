@@ -20,6 +20,7 @@ module.exports = async(client, oldState, newState) => {
   
   // If Leaves Vc
     if (oldState.channel !== newState.channel && newState.channel === null) {
+
       if(oldState.channel.id == client.user.id) setTimeout(() => {joinvc();}, 2000)
     if (client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) {
       var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
@@ -78,11 +79,13 @@ module.exports = async(client, oldState, newState) => {
   }} catch (error) {console.log(error);}
   }
   function joinvc() {
+
     let channel = client.channels.cache.get('751867649843265616')
     let guild = client.guilds.cache.get('747565321745072359')
              joinVoiceChannel({
                 channelId: channel.id,
                 guildId: guild.id,
                 adapterCreator: guild.voiceAdapterCreator
+
             })
 }  }
