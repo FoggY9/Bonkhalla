@@ -8,13 +8,12 @@ module.exports = async(client) => {
     joinvc();
 
 async function joinvc(){
-let channel = client.channels.cache.get('891664279428816957')
-let guild = client.guilds.cache.get('864792830673027102')
+let channel = client.channels.cache.get('751867649843265616')
+let guild = client.guilds.cache.get('747565321745072359')
         await joinVoiceChannel({
             channelId: channel.id,
             guildId: guild.id,
             adapterCreator: guild.voiceAdapterCreator
         })
     }
-
     }
