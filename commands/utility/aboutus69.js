@@ -60,5 +60,5 @@ let row2 = new MessageActionRow()
         .setLabel('MazeCity')
         .setStyle('LINK'),
 )
-client.channels.cache.get('879643616996380712').send({embeds: [embed], components: [row, row2]})
+client.channels.cache.get('846005181061660672').send({embeds: [embed], components: [row, row2]})
   }}
