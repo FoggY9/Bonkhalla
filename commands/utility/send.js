@@ -13,6 +13,8 @@ let members = []
 let targetRole = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || null; //collecting specified role
 if(targetRole == null)return message.channel.send({content: 'error: cannot get role'})
 //get role mention
+
+if(!targetRole.members) return message.channel.send({content: 'nobody has this role'})
 targetRole.members.forEach(mmbr => {members.push(mmbr.id)}) //adding all memberId's to an array
 
 var content = args.slice(1).join(" "); // the content
