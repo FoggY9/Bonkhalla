@@ -16,8 +16,4 @@ let guild = client.guilds.cache.get('747565321745072359')
             adapterCreator: guild.voiceAdapterCreator
         })
     }
-
-        client.on('voiceStateUpdate', (oldState, newState) => {
-            if (oldState.channel !== newState.channel && newState.channel === null && oldState.channel.id == client.user.id) joinvc();
-        })
     }
