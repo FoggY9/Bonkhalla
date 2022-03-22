@@ -14,6 +14,9 @@ let guild = client.guilds.cache.get('747565321745072359')
             guildId: guild.id,
             adapterCreator: guild.voiceAdapterCreator
         })
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
     }
