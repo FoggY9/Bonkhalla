@@ -9,8 +9,8 @@ module.exports = {
 let embed = new MessageEmbed()
 .setColor('AQUA')
 .setTitle('All Commands')
-.addField('• Give clan role', `**usage:** ^add\`clan tag, first 3 letter\` @mentions\n**description:** adds clan role to targeted users\n**example:** ^add7t1`)
-.addField('• Remove clan role', `**usage:** ^remove\`clan tag, first 3 letter\` @mentions\n**description:** removes clan role to targeted users\n**example:** ^remove7t1`)
+.addField('• Give clan role', `**usage:** ^add\`clan tag, first 3 letters\` @mentions\n**description:** adds clan role to targeted users\n**example:** ^add7t1 @redapple`)
+.addField('• Remove clan role', `**usage:** ^remove\`clan tag, first 3 letters\` @mentions\n**description:** removes clan role to targeted users\n**example:** ^remove7t1 @redapple`)
 .addField('• Leave clan', 'usage: ^leaveclan\ndescription: leaves clan and remove clan roles')
 .setFooter({text: '^botstatus to check bot status', iconURL: 'https://i.imgur.com/tZ2sJum.png'})
 .addField('• ADMIN Commands', 
