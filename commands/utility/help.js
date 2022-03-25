@@ -9,12 +9,12 @@ module.exports = {
 let embed = new MessageEmbed()
 .setColor('AQUA')
 .setTitle('All Commands')
-.addField('• Give clan role', `**usage:** ^add\`clan tag, first 3 letter\` @mentions\n**description:** adds clan role to targeted users\n**example:** ^add7t1`)
-.addField('• Remove clan role', `**usage:** ^remove\`clan tag, first 3 letter\` @mentions\n**description:** removes clan role to targeted users\n**example:** ^remove7t1`)
-.addField('• Leave clan', 'usage: ^leaveclan\ndescription: leaves clan and remove clan roles')
+.addField('• Give clan role', `__usage:__ ^add\`clan tag, first 3 letters\` @mentions\n__description:__ adds clan role to targeted users\n__example:__ ^add7t1 @redapple`)
+.addField('• Remove clan role', `__usage:__ ^remove\`clan tag, first 3 letters\` @mentions\n__description:__ removes clan role to targeted users\n__example:__ ^remove7t1 @redapple`)
+.addField('• Leave clan', '__usage:__ ^leaveclan\n__description:__ leaves clan and remove clan roles')
 .setFooter({text: '^botstatus to check bot status', iconURL: 'https://i.imgur.com/tZ2sJum.png'})
 .addField('• ADMIN Commands', 
-'> dmStaffs \nusage: ^dmstaffs \`Content\`\ndescription: dm all staffs (mod, jmod, staffs)\n\n> send/dmall\nusage: ^send \`Role\` \`Content\`\ndescription: sends mass dm to a specific role holders'
+'> dmStaffs \n__usage:__ ^dmstaffs \`Content\`\n__description:__ dm all staffs (mod, jmod, staffs)\n\n> send/dmall\n__usage:__ ^send \`Role\` \`Content\`\n__description:__ sends mass dm to a specific role holders'
 )
 
 
