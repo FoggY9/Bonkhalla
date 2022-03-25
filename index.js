@@ -5,10 +5,10 @@ require('dotenv').config();
 // Express web monitoring
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => res.send('Brawlhalla bangladesh official bot is Online'));
-app.listen(process.env.PORT || port, () => console.log(`Example app listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
 // Creating bot
 const client = new Client({ intents: [

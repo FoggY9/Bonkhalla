@@ -26,7 +26,7 @@ module.exports = async(client, oldState, newState) => {
       var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
       if (vc.members.size < 1) { 
         client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
-        console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
+        client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
         return vc.delete()
         .catch(err => console.log(err)); 
     }
@@ -40,7 +40,7 @@ module.exports = async(client, oldState, newState) => {
         {   var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
                 if (vc.members.size < 1)
                  { client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
-            console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room Deleted")
+                 client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
             return vc.delete()
             .catch(err => console.log(err)); 
         }
@@ -51,7 +51,7 @@ module.exports = async(client, oldState, newState) => {
   // VC CREATE FUNCTION
   async function CreateVc(user, name, userlimit,){
   
-    console.log(" :: " + user.member.user.username + "#" + user.member.user.discriminator + " :: Created " + name)
+    client.channels.cache.get('955447531716878427').send({content: ` :: ${user.member.user.username}#${user.member.user.discriminator} :: Created  ${name}`})
   await user.guild.channels.create(name, {  type: "GUILD_VOICE",  parent: Category,})
     .then(async vc => {
       client.jointocreatemap.set(`tempvc_${vc.guild.id}_${vc.id}`, vc.id);
@@ -74,7 +74,7 @@ module.exports = async(client, oldState, newState) => {
   if(!channel) return;
   if (vc.members.size < 1) { 
     client.jointocreatemap.delete(`tempvc_${vc.guild.id}_${vc.id}`); 
-    console.log(" :: " + oldState.member.user.username + "#" + oldState.member.user.discriminator + " :: Room deleted")
+    client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted` })
     return vc.delete();
   }} catch (error) {console.log(error);}
   }
