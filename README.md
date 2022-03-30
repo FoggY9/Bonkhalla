@@ -1,2 +1,2 @@
-This bot is made for brawlhalla bangladesh offcial...., Help us by forking.... 
-based on Discord.js version v13
+This bot is made for brawlhalla bangladesh offcial....<br/>, Help us by forking....<br/>
+based on Discord.js version v13 <br/> discord server link : https://discord.gg/SwPn3NDv
