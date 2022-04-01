@@ -21,7 +21,7 @@ module.exports = async(client, oldState, newState) => {
   // If Leaves Vc
     if (oldState.channel !== newState.channel && newState.channel === null) {
 
-      if(oldState.channel.id == client.user.id) setTimeout(() => {joinvc();}, 2000)
+      if(oldState.member.id == client.user.id) setTimeout(() => {joinvc();}, 2000)
     if (client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) {
       var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
       if (vc.members.size < 1) { 
