@@ -42,12 +42,12 @@ let azu = {
 let embed = new MessageEmbed().setColor('#FFFFFF');
 
 // Get Targeted Clan
-if(args[0] = 'bed'.toLowerCase()) var target = bed;
-else if(args[0] = 'per'.toLowerCase()) var target = per;
-else if(args[0] = 'khu'.toLowerCase()) var target = khu;
-else if(args[0] = 'fiv'.toLowerCase()) var target = fiv;
-else if(args[0] = '7t1'.toLowerCase()) var target = _7t1;
-else if(args[0] = 'azu'.toLowerCase()) var target = azu;
+if(args[0] == 'bed'.toLowerCase()) var target = bed;
+else if(args[0] == 'per'.toLowerCase()) var target = per;
+else if(args[0] == 'khu'.toLowerCase()) var target = khu;
+else if(args[0] == 'fiv'.toLowerCase()) var target = fiv;
+else if(args[0] == '7t1'.toLowerCase()) var target = _7t1;
+else if(args[0] == 'azu'.toLowerCase()) var target = azu;
 else{ return message.channel.send({content: 'cant find the clan \n Usage: *^claninfo <prefix>* \n first 3 letter of a clan name is its prefix.'})}
 
 // Get Clan Name
