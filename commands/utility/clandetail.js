@@ -39,7 +39,7 @@ let azu = {
 
 
 // Created Embed
-let embed = new MessageEmbed().setColor('White');
+let embed = new MessageEmbed().setColor('#FFFFFF');
 
 // Get Targeted Clan
 if(args[0] = 'bed'.toLowerCase()) var target = bed;

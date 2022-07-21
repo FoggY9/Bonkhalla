@@ -11,8 +11,8 @@ module.exports = async(client, oldState, newState) => {
   
   if(oldState.channel !== newState.channel && oldState.channel !== null){
     if (oldState.channel.name == 'Custom Lobby' || oldState.channel.name == '2v2 Lobby' || oldState.channel.name == '1v1 Lobby') {
-      if (vc.members.size < 1) { 
-          return vc.delete().catch(err => console.log(err)); 
+      if (oldState.channel.members.size < 1) { 
+          return oldState.channel.delete().catch(err => console.log(err)); 
     }}}
   
   // If Joins Vc
