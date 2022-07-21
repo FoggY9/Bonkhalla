@@ -66,7 +66,7 @@ if(mmbr.roles.cache.has('851722247206600704')) leaderString = leaderString + ` <
 })
 
   // Leaders Field
-  embed.addField('Clan Leaders', leaderString, False)
+  embed.addField('Clan Leaders', leaderString)
 // Mark Members
 let memberString = '';
 memberList.forEach(element => {
@@ -74,7 +74,7 @@ memberList.forEach(element => {
 });
 
   // Members Field
-  embed.addField('Clan Members', memberString, False)
+  embed.addField('Clan Members', memberString)
 
 // check if logo, level, Discord Server
 
