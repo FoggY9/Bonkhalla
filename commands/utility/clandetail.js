@@ -55,13 +55,14 @@ embed.setTitle(target.name)
 // Get all clan members
 var memberList = [];
 let targetRole = message.guild.roles.cache.get(target.clanid);
-targetRole.members.cache.forEach(mmbr => 
+targetRole.members.forEach(mmbr => 
   {memberList.push(mmbr.id)})
 
 // Mark Leaders
 let leaderString = '';
-targetRole.members.cache.forEach(mmbr => {
-if(message.guild.members.cache.get(mmbr.id).roles.has(message.guild.roles.cache.get('851722247206600704'))) leaderString = leaderString + ` <@!${mmbr.id}>`;
+targetRole.members.forEach(mmbr => {
+  console.log(mmbr);
+//if(mmbr.roles.has(message.guild.roles.cache.get('851722247206600704'))) leaderString = leaderString + ` <@!${mmbr.id}>`;
 })
 
   // Leaders Field
