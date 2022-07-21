@@ -62,7 +62,7 @@ targetRole.members.forEach(mmbr =>
 let leaderString = '';
 targetRole.members.forEach(mmbr => {
   console.log(mmbr);
-//if(mmbr.roles.has(message.guild.roles.cache.get('851722247206600704'))) leaderString = leaderString + ` <@!${mmbr.id}>`;
+if(mmbr.roles.has('851722247206600704')) leaderString = leaderString + ` <@!${mmbr.id}>`;
 })
 
   // Leaders Field
