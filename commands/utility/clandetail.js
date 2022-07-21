@@ -8,7 +8,7 @@ module.exports = {
 
     // Errors
     if(!args.length){
-      return message.channel.send({content: "Provide The Clan Prefix \n `info:` first 3 letter of a clan is its prefix"})
+      return message.channel.send({content: "Provide The Clan Prefix\n Usage: *^claninfo <prefix>* \n first 3 letter of a clan name is its prefix"})
     }
 
 // Clan Info's

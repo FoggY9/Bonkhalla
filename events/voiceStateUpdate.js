@@ -5,11 +5,15 @@ module.exports = async(client, oldState, newState) => {
   
   
   // Static Channel Id's   
-  
   const crt_custom_lobby = VcOne;
   const crt_2s_lobby = VcTwo;
   const crt_1s_lobby = VcThree;
   
+  if(oldState.channel !== newState.channel && oldState.channel !== null){
+    if (oldState.channel.name == 'Custom Lobby' || oldState.channel.name == '2v2 Lobby' || oldState.channel.name == '1v1 Lobby') {
+      if (vc.members.size < 1) { 
+          return vc.delete().catch(err => console.log(err)); 
+    }}}
   
   // If Joins Vc
   if (oldState.channel !== newState.channel && newState.channel !== null) {
