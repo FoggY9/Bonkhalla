@@ -61,7 +61,7 @@ targetRole.members.forEach(mmbr =>
 // Mark Leaders
 let leaderString = '';
 targetRole.members.forEach(mmbr => {
-  console.log(mmbr);
+
 if(mmbr.roles.has('851722247206600704')) leaderString = leaderString + ` <@!${mmbr.id}>`;
 })
 
