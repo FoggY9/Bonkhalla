@@ -81,5 +81,5 @@ memberList.forEach(element => {
 
 
 // Send Result
-message.channel.send({embed: [embed]})
+message.channel.send({embeds: [embed]})
   }}
