@@ -1,7 +1,7 @@
 {
   "name": "bbo-discord-bot",
   "version": "1.0.0",
-  "description": "a temp vc bot for bbo",
+  "description": "a dc bot for bbo",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
