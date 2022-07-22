@@ -13,28 +13,46 @@ module.exports = {
 
 // Clan Info's
 let bed = {
-  name: 'Bedroom Community',
-  clanid: '851302141499015208'
+  name: 'Bedroom Community [SEA]',
+  clanid: '851302141499015208',
+  logo: '',
+  level: '',
+  link: 'discord.gg/Xq67vfWmzT'
 }
 let per = {
-  name: 'Persistence',
-  clanid: '877450177991020584'
+  name: 'Persistence [SEA]',
+  clanid: '877450177991020584',
+  logo: '',
+  level: '',
+  link: ''
 }
 let khu = {
-  name: 'Khudarto',
-  clanid: '850939055872147456'
+  name: 'Khudarto [SEA]',
+  clanid: '850939055872147456',
+  logo: '',
+  level: '',
+  link: ''
 }
 let fiv = {
-  name: 'Five Fingers n Extra',
-  clanid: '799676323948920902'
+  name: 'Five Fingers n Extra [SEA]',
+  clanid: '799676323948920902',
+  logo: '',
+  level: '',
+  link: ''
 }
 let _7t1 = {
-  name: '7t1 Bangladesh',
-  clanid: '772444761906348052'
+  name: '7t1 Bangladesh [SEA]',
+  clanid: '772444761906348052',
+  logo: '',
+  level: '82',
+  link: ''
 }
 let azu = {
-  name: 'Azure Spirit',
-  clanid: '838085789841752134'
+  name: 'Azure Spirit [SEA]',
+  clanid: '838085789841752134',
+  logo: '',
+  level: '',
+  link: ''
 }
 
 
@@ -66,7 +84,7 @@ if(mmbr.roles.cache.has('851722247206600704')) leaderString = leaderString + ` <
 })
 
   // Leaders Field
-  embed.addField('Clan Leaders', leaderString)
+  embed.addField('• Clan Leaders', leaderString)
 // Mark Members
 let memberString = '';
 memberList.forEach(element => {
@@ -74,10 +92,19 @@ memberList.forEach(element => {
 });
 
   // Members Field
-  embed.addField('Clan Members', memberString)
+  embed.addField(`• Clan Members [${memberList.length}]`, memberString)
 
-// check if logo, level, Discord Server
+// check if logo, level, Discord Server and set it in description
 
+if (target.level.length) {
+  embed.addField(`Clan level`, target.level, true)
+}
+if (target.link.length) {
+  embed.addField(`Discord Server`, target.link, true)
+}
+if (target.logo.length) {
+  embed.setThumbnail(target.logo)
+}
 
 
 // Send Result
