@@ -17,7 +17,7 @@ let bed = {
   clanid: '851302141499015208',
   logo: '',
   level: '',
-  link: 'discord.gg/Xq67vfWmzT'
+  link: 'https://discord.gg/Xq67vfWmzT'
 }
 let per = {
   name: 'Persistence [SEA]',
@@ -45,14 +45,14 @@ let _7t1 = {
   clanid: '772444761906348052',
   logo: '',
   level: '82',
-  link: ''
+  link: 'https://discord.gg/G3VBNfxnVt'
 }
 let azu = {
   name: 'Azure Spirit [SEA]',
   clanid: '838085789841752134',
   logo: '',
   level: '',
-  link: 'discord.gg/mFB59MeuKf'
+  link: 'https://discord.gg/mFB59MeuKf'
 }
 
 // Created Embed
