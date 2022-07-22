@@ -52,9 +52,8 @@ let azu = {
   clanid: '838085789841752134',
   logo: '',
   level: '',
-  link: ''
+  link: 'discord.gg/mFB59MeuKf'
 }
-
 
 // Created Embed
 let embed = new MessageEmbed().setColor('#FFFFFF');
