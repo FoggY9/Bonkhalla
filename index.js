@@ -2,12 +2,12 @@
 const {Client, Collection, Intents} = require('discord.js');
 require('dotenv').config();
 
-// Express web monitoring
+// Express web
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-
-app.get('/', (req, res) => res.send('Brawlhalla bangladesh official bot is Online'));
+app.set('view engine', 'ejs');
+app.get('/', (req, res) => res.render('./web/index'));
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
 // Creating bot
@@ -26,5 +26,5 @@ client.commands = new Collection();
 client.events = new Collection();
 
 ['command_handler', 'event_handler', 'crash_handler'].forEach(handler =>{
-  require(`./${handler}`)(client)
+  require(`./handlers/${handler}`)(client)
 })
