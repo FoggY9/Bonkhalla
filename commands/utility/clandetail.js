@@ -16,7 +16,7 @@ let bed = {
   name: 'Bedroom Community [SEA]',
   clanid: '851302141499015208',
   logo: 'https://cdn.discordapp.com/icons/869217076466835506/c4593d64d987054def3c427ad9de330a.webp?size=96',
-  level: '',
+  level: '74',
   link: 'https://discord.gg/Xq67vfWmzT'
 }
 let per = {
