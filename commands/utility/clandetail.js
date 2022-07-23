@@ -17,7 +17,8 @@ let bed = {
   clanid: '851302141499015208',
   logo: 'https://cdn.discordapp.com/icons/869217076466835506/c4593d64d987054def3c427ad9de330a.webp?size=96',
   level: '74',
-  link: 'https://discord.gg/Xq67vfWmzT'
+  link: 'https://discord.gg/Xq67vfWmzT',
+  title: `Brawlhalla Bangladesh Official's Clan Battle Season One!`
 }
 let per = {
   name: 'Persistence [SEA]',
@@ -103,6 +104,9 @@ if (target.link.length) {
 }
 if (target.logo.length) {
   embed.setThumbnail(target.logo)
+}
+if (target.title) {
+  embed.addField(`Titles`, target.title. true)
 }
 
 
