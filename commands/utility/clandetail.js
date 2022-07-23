@@ -15,7 +15,7 @@ module.exports = {
 let bed = {
   name: 'Bedroom Community [SEA]',
   clanid: '851302141499015208',
-  logo: '',
+  logo: 'https://cdn.discordapp.com/icons/869217076466835506/c4593d64d987054def3c427ad9de330a.webp?size=96',
   level: '',
   link: 'https://discord.gg/Xq67vfWmzT'
 }
