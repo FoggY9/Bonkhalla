@@ -8,6 +8,10 @@
     <title>BBO</title>
 
     <style>
+        @font-face {
+  font-family: ptsans;
+  src: url('https://fonts.google.com/specimen/PT+Sans');
+}
 html{
     background-color: #1d2a35;
 }
@@ -16,8 +20,20 @@ nav{
     height: 60px;
     display: block;
     padding: 6px;
-    border-radius: 10px;
-    border: 1px #282A35;
+    border: 1px solid #282A35;
+    border-radius: 30px;
+    position: fixed;
+}
+img{
+    width: 50px;
+}
+div{
+    font-family: ptsans;
+    text-align: center;
+    padding: 10px;
+    font-size: 35px;
+    margin:auto;
+    color:aqua;
 }
     </style>
 
@@ -25,7 +41,7 @@ nav{
 <body>
     <nav class="nav">
 <img src="/public/images/bbo_logo.png" style="float:left">
-<div style="margin:auto">Brawlhalla Bangladesh Official</div>
+<div>Brawlhalla Bangladesh Official</div>
     </nav>
 </body>
 </html>
