@@ -18,13 +18,16 @@ var guild = client.guilds.cache.get('747565321745072359')
     }
 
     // CHECK if any temp vc is active
-
+function checkvcs() {
     client.guilds.cache.get('747565321745072359').channels.cache.forEach(cnl => {
 
-       if (cnl.name == 'Custom Lobby' || cnl.name == '2v2 Lobby' || cnl.name == '1v1 Lobby') {
-    if (cnl.members.size < 1) { 
-           return cnl.delete().catch(err => console.log(err)); 
-      }}
-    });
+        if (cnl.name == 'Custom Lobby' || cnl.name == '2v2 Lobby' || cnl.name == '1v1 Lobby') {
+     if (cnl.members.size < 1) { 
+            return cnl.delete().catch(err => console.log(err)); 
+       }}
+     });
+}
+checkvcs();
+setInterval(myTimer, 10000);
  
     }
