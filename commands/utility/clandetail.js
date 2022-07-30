@@ -11,7 +11,7 @@ module.exports = {
       return message.channel.send({content: "Provide The Clan Prefix\n Usage: *^claninfo <prefix>* \n first 3 letter of a clan name is its prefix"})
     }
 
-// Clan Info's
+// Clan Info's as Objects
 let bed = {
   name: 'Bedroom Community [SEA]',
   clanid: '851302141499015208',
@@ -55,17 +55,25 @@ let azu = {
   level: '',
   link: 'https://discord.gg/mFB59MeuKf'
 }
+let str = {
+  name: 'Strawberry Fields [SEA]',
+  clanid: '1000623144786198548',
+  logo: '',
+  level: '',
+  link: ''
+}
 
 // Created Embed
 let embed = new MessageEmbed().setColor('#FFFFFF');
 
 // Get Targeted Clan
-if(args[0] == 'bed'.toLowerCase()) var target = bed;
+     if(args[0] == 'bed'.toLowerCase()) var target = bed;
 else if(args[0] == 'per'.toLowerCase()) var target = per;
 else if(args[0] == 'khu'.toLowerCase()) var target = khu;
 else if(args[0] == 'fiv'.toLowerCase()) var target = fiv;
 else if(args[0] == '7t1'.toLowerCase()) var target = _7t1;
 else if(args[0] == 'azu'.toLowerCase()) var target = azu;
+else if(args[0] == 'str'.toLowerCase()) var target = str;
 else{ return message.channel.send({content: 'cant find the clan \n Usage: *^claninfo <prefix>* \n first 3 letter of a clan name is its prefix.'})}
 
 // Get Clan Name
