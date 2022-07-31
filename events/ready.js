@@ -28,6 +28,6 @@ function checkvcs() {
      });
 }
 checkvcs();
-setInterval(myTimer, 10000);
+setInterval(checkvcs, 10000);
  
     }
