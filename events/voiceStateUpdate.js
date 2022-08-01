@@ -1,5 +1,5 @@
 const { joinVoiceChannel } = require('@discordjs/voice');
-module.exports = async(client, oldState, newState) => {
+module.exports = (client, oldState, newState) => {
 
   const { Category, VcOne, VcTwo, VcThree } = require('../config.json')
   
