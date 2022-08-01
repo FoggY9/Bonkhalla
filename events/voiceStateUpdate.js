@@ -23,7 +23,7 @@ module.exports = async(client, oldState, newState) => {
     if (oldState.channel !== newState.channel && newState.channel === null) {
       if(oldState.member.id == client.user.id) setTimeout(() => {joinvc();}, 2000) //if bot is dc's
 
-
+      // if has vc record
       if(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) {
         var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
         if (vc.members.size < 1) { 
@@ -32,7 +32,9 @@ module.exports = async(client, oldState, newState) => {
           return vc.delete()
           .catch(err => console.log(err)); 
       }
-    }else if(oldState.channel.name == 'Custom Lobby' || oldState.channel.name == '2v2 Lobby' || oldState.channel.name == '1v1 Lobby'){
+    }
+      // if its a temp vc
+    else if(oldState.channel.name == 'Custom Lobby' || oldState.channel.name == '2v2 Lobby' || oldState.channel.name == '1v1 Lobby'){
         if (oldState.channel.members.size < 1) { 
           client.channels.cache.get('955447531716878427').send({content: ` :X: ${oldState.channel.name} deleted`})
             return oldState.channel.delete().catch(err => console.log(err)); 
@@ -40,8 +42,8 @@ module.exports = async(client, oldState, newState) => {
     
   }
   // Moved vc >> changed vc
-   if (oldState.channel && newState.channel) {
-      if (oldState.channel !== newState.channel) {
+   if (oldState.channel && newState.channel && oldState.channel !== newState.channel) {
+          // if has vc record
         if (client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) {
              var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
                 if (vc.members.size < 1)
@@ -51,13 +53,14 @@ module.exports = async(client, oldState, newState) => {
             .catch(err => console.log(err)); 
         }
         }
+          // if its a temp vc
         else if(oldState.channel.name == 'Custom Lobby' || oldState.channel.name == '2v2 Lobby' || oldState.channel.name == '1v1 Lobby'){
         if (oldState.channel.members.size < 1) { 
           client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
           return vc.delete()
           .catch(err => console.log(err)); 
       }}
-      }
+      
   }
 
 // Functions
