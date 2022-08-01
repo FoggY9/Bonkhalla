@@ -114,7 +114,7 @@ if (target.logo.length) {
   embed.setThumbnail(target.logo)
 }
 if (target.title) {
-  embed.addField(`Titles`, target.title. true)
+  embed.addField(`Titles`, target.title)
 }
 
 
