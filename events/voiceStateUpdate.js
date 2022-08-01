@@ -40,7 +40,7 @@ module.exports = async(client, oldState, newState) => {
     
   }
   // Moved vc >> changed vc
-  else if (oldState.channel && newState.channel) {
+   if (oldState.channel && newState.channel) {
       if (oldState.channel !== newState.channel) {
         if (client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) {
              var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
@@ -51,12 +51,12 @@ module.exports = async(client, oldState, newState) => {
             .catch(err => console.log(err)); 
         }
         }
-        else if (oldState.channel.members.size < 1) { 
-          client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
+        else if(oldState.channel.name == 'Custom Lobby' || oldState.channel.name == '2v2 Lobby' || oldState.channel.name == '1v1 Lobby'){
+        if (oldState.channel.members.size < 1) { 
           client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
           return vc.delete()
           .catch(err => console.log(err)); 
-      }
+      }}
       }
   }
 

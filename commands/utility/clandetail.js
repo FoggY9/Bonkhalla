@@ -44,9 +44,9 @@ let fiv = {
 let _7t1 = {
   name: '7t1 Bangladesh [SEA]',
   clanid: '772444761906348052',
-  logo: '',
+  logo: 'https://media.discordapp.net/attachments/903874086160191493/982970626694316032/5_METALIC.jpg',
   level: '82',
-  link: 'https://discord.gg/G3VBNfxnVt'
+  link: 'https://discord.gg/PUSNgnCVjR'
 }
 let azu = {
   name: 'Azure Spirit [SEA]',
@@ -59,7 +59,7 @@ let str = {
   name: 'Strawberry Fields [SEA]',
   clanid: '1000623144786198548',
   logo: '',
-  level: '',
+  level: '31+',
   link: ''
 }
 
