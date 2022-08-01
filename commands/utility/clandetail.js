@@ -18,14 +18,14 @@ let bed = {
   logo: 'https://cdn.discordapp.com/icons/869217076466835506/c4593d64d987054def3c427ad9de330a.webp?size=96',
   level: '74',
   link: 'https://discord.gg/Xq67vfWmzT',
-  title: `Brawlhalla Bangladesh Official's Clan Battle Season One!`
+  title: `Winner of BBO Clan Battle Season One!`
 }
 let per = {
   name: 'Persistence [SEA]',
   clanid: '877450177991020584',
   logo: '',
   level: '',
-  link: ''
+  link: `Winner of BBO Clan Battle Season two!`
 }
 let khu = {
   name: 'Khudarto [SEA]',

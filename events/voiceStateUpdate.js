@@ -13,7 +13,7 @@ module.exports = async(client, oldState, newState) => {
 
   
   // If Joins Vc
-  if (oldState.channel !== newState.channel && newState.channel !== null && oldState.channel == null) {
+  if (oldState.channel !== newState.channel && newState.channel !== null) {
       if(newState.channel.id == crt_custom_lobby){ CreateVc(newState, 'Custom Lobby', '8');}
       else if(newState.channel.id == crt_2s_lobby){CreateVc(newState, '2v2 Lobby', '4');}
       else if(newState.channel.id == crt_1s_lobby){CreateVc(newState, '1v1 Lobby', '2');}
@@ -42,8 +42,8 @@ module.exports = async(client, oldState, newState) => {
   // Moved vc >> changed vc
   else if (oldState.channel && newState.channel) {
       if (oldState.channel !== newState.channel) {
-        if (client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) 
-        {   var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
+        if (client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) {
+             var vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`));
                 if (vc.members.size < 1)
                  { client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
                  client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
@@ -51,6 +51,12 @@ module.exports = async(client, oldState, newState) => {
             .catch(err => console.log(err)); 
         }
         }
+        else if (oldState.channel.members.size < 1) { 
+          client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
+          client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
+          return vc.delete()
+          .catch(err => console.log(err)); 
+      }
       }
   }
 
