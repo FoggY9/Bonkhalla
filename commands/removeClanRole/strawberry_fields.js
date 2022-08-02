@@ -5,7 +5,7 @@ module.exports = {
   aliases: ['removestr'],
   description: "removes Strawberry role of a member",
  async execute(client, message) {
-  message.delete();
+ 
 
 const clanName = 'Strawberry Fields'
 const {LeaderRoleId} = require('../../config.json');

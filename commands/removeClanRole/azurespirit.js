@@ -5,7 +5,7 @@ module.exports = {
   aliases: ['removeazu'],
   description: "removes azure role of a member",
  async execute(client, message) {
-  message.delete();
+ 
 
 const clanName = 'Azure Spirit'
 const {LeaderRoleId} = require('../../config.json');

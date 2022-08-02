@@ -5,7 +5,7 @@ module.exports = {
   aliases: ['addstr', 'givestr'],
   description: "adds strawberry role to a member",
  async execute(client, message) {
-message.delete();
+
 
 const clanName = 'Strawberry Fields'
 const {LeaderRoleId} = require('../../config.json');

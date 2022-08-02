@@ -5,7 +5,7 @@ module.exports = {
   aliases: ['addbed', 'givebed'],
   description: "adds bed role to a member",
  async execute(client, message) {
-  message.delete();
+
 
 const clanName = 'bedroom community'
 const {LeaderRoleId} = require('../../config.json');

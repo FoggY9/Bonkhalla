@@ -12,7 +12,7 @@ module.exports = (client, oldState, newState) => {
   // delete vc if someone 
 
   
-  // If Joins Vc
+  // If Joins Vc, even if changed vc and joined
   if (oldState.channel !== newState.channel && newState.channel !== null) {
       if(newState.channel.id == crt_custom_lobby){ CreateVc(newState, 'Custom Lobby', '8');}
       else if(newState.channel.id == crt_2s_lobby){CreateVc(newState, '2v2 Lobby', '4');}

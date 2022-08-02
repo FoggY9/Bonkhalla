@@ -5,7 +5,6 @@ module.exports = {
   aliases: ['addazu', 'giveazu'],
   description: "adds azure role to a member",
  async execute(client, message) {
-message.delete();
 
 const clanName = 'Azure Spirit'
 const {LeaderRoleId} = require('../../config.json');
