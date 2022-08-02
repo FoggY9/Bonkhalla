@@ -96,10 +96,10 @@ var membr = interaction.guild.members.cache.get(targetId)
 let alrdyhas = new MessageEmbed().setColor('GREY').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** doesn't has this clan role`)
 let done = new MessageEmbed().setColor('BLUE').setDescription(`🔵 **|** **${membr.user.username + '#' + membr.user.discriminator}** has removed **${options._hoistedOptions[0].value}** Clan Role`).setTimestamp()
 .setFooter({ text: `action by ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' })
-        if(!membr.roles.cache.has(roleid)){interaction.channel.send({embeds: [alrdyhas]})}
-        else if(membr.roles.cache.has(roleid)){
+        if(!membr.roles.cache.has(target)){interaction.channel.send({embeds: [alrdyhas]})}
+        else if(membr.roles.cache.has(target)){
 
-        membr.roles.remove(interaction.guild.roles.cache.get(roleid)).then(
+        membr.roles.remove(interaction.guild.roles.cache.get(target)).then(
           interaction.channel.send({embeds: [done]})
         );
         }
