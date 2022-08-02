@@ -30,8 +30,6 @@ function checkvcs() {
 }
 checkvcs();
 setInterval(checkvcs, 10000);
- 
-
 
     slashpanel();
     function slashpanel() {
@@ -43,7 +41,10 @@ setInterval(checkvcs, 10000);
     }else{
     commands = client.application.commands
     }
-
+    commands.create({
+        name: 'help',
+        description: 'get info of this bot and its commands'
+    })
     commands.create({
         name: 'add',
         description: 'give clan role',
@@ -71,6 +72,32 @@ setInterval(checkvcs, 10000);
     }
     ]
     })
+    commands.create({
+        name: 'remove',
+        description: 'remove clan role',
+        options: [
+            {
+            name: 'clan-name',
+            description: 'the clan role you want to remove',
+            choices:[
+                {name: 'Azure Spirit', value: 'Azure Spirit'}, 
+                {name: '7t1 Bangladesh', value: '7t1 Bangladesh'},
+                {name: 'Bedroom Community', value: 'Bedroom Community'},
+                {name: 'Persistence', value: 'Persistence'},
+                {name: 'Five Finger N Extra', value: 'Five Finger N Extra'},
+                {name: 'Strawberry Field', value: 'Strawberry Field'},
+                {name: 'Khudarto', value: 'Khudarto'},
+            ],
+            required: true,
+            type: DiscordJs.Constants.ApplicationCommandOptionTypes.STRING
+        },
+    {
+            name: 'target-member',
+            description: 'the member you want to remove',
+            required: true,
+            type: DiscordJs.Constants.ApplicationCommandOptionTypes.USER
+    }
+    ]
+    })
         }
- 
     }
