@@ -52,7 +52,7 @@ let azu = {
   name: 'Azure Spirit [SEA]',
   clanid: '838085789841752134',
   logo: '',
-  level: '',
+  level: '100',
   link: 'https://discord.gg/mFB59MeuKf'
 }
 let str = {

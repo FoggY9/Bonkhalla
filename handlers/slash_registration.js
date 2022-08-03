@@ -40,6 +40,7 @@ module.exports = (client) =>{
                 {name: 'Five Finger N Extra', value: 'Five Finger N Extra'},
                 {name: 'Strawberry Field', value: 'Strawberry Field'},
                 {name: 'Khudarto', value: 'Khudarto'},
+                {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'}
             ],
             required: true,
             type: DiscordJs.Constants.ApplicationCommandOptionTypes.STRING
@@ -67,6 +68,7 @@ module.exports = (client) =>{
                 {name: 'Five Finger N Extra', value: 'Five Finger N Extra'},
                 {name: 'Strawberry Field', value: 'Strawberry Field'},
                 {name: 'Khudarto', value: 'Khudarto'},
+                {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'}
             ],
             required: true,
             type: DiscordJs.Constants.ApplicationCommandOptionTypes.STRING

@@ -4,7 +4,7 @@ module.exports = {
 run: (client, interaction, options) => {
 
     interaction.reply({content: `taking action`})
-    let clanrole = ['838085789841752134', '877450177991020584', '850939055872147456', '799676323948920902', '851302141499015208', '772444761906348052', '1000623144786198548']
+    let clanrole = ['838085789841752134', '877450177991020584', '850939055872147456', '799676323948920902', '851302141499015208', '772444761906348052', '1000623144786198548', '1004325446797762611']
     for(let i = 0; i < clanrole.length;i++){
         if( interaction.member.roles.cache.has(clanrole[i])){
           let roleName =  interaction.guild.roles.cache.find(r => r.id === clanrole[i]).name;

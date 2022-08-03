@@ -16,6 +16,7 @@ run: (client, interaction, options) => {
         let _7t1_Bangladesh = '772444761906348052';
         let Azure_Spirit = '838085789841752134';
         let Strawberry_Field = '1000623144786198548';
+        let Bad_2v2_Players = '1004325446797762611';
 
     
     let targetClanPrefix = options._hoistedOptions[0].value;
@@ -28,6 +29,7 @@ run: (client, interaction, options) => {
         else if(targetClanPrefix == '7t1 Bangladesh') var target = _7t1_Bangladesh;
         else if(targetClanPrefix == 'Azure Spirit') var target = Azure_Spirit;
         else if(targetClanPrefix == 'Strawberry Field') var target = Strawberry_Field;
+        else if(targetClanPrefix == 'Strawberry Field') var target = Bad_2v2_Players;
 
 let accessDn = new MessageEmbed().setColor('RED').setDescription(`❌ **|** ${interaction.user} You can't remove roles of members, you dont have permission \nrequired-role: **Clan Leader**`)
 
