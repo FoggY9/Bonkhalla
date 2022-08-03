@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 module.exports = {
-    name: 'removeclan',
+    name: 'leaveclan',
 run: (client, interaction, options) => {
 
     interaction.reply({content: `taking action`})
