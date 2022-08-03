@@ -23,7 +23,8 @@ client.jointocreatemap = new Map();
 // handlers
 client.commands = new Collection();
 client.events = new Collection();
+client.slashcmd = new Collection();
 
-['command_handler', 'event_handler', 'crash_handler'].forEach(handler =>{
+['command_handler', 'event_handler', 'crash_handler' , 'slashcmd_handler'].forEach(handler =>{
   require(`./handlers/${handler}`)(client)
 })
