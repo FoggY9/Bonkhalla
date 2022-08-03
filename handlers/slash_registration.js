@@ -80,7 +80,7 @@ module.exports = (client) =>{
     ]
     })
     commands.create({
-        name: 'Leaveclan',
+        name: 'leaveclan',
         description: 'remove all clan roles'
     })
 
