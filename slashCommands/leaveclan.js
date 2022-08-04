@@ -3,7 +3,6 @@ module.exports = {
     name: 'leaveclan',
 run: async(client, interaction, options) => {
 
-    interaction.reply({content: `taking action`})
     let clanrole = ['838085789841752134', '877450177991020584', '850939055872147456', '799676323948920902', '851302141499015208', '772444761906348052', '1000623144786198548', '1004325446797762611']
 
 var roles = await interaction.member.roles
