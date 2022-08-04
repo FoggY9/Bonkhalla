@@ -28,7 +28,7 @@ let fiv = new Clan('Five Fingers n Extra [SEA]','799676323948920902','','','',''
 let _7t1 = new Clan('7t1 Bangladesh [SEA]','772444761906348052','https://media.discordapp.net/attachments/903874086160191493/982970626694316032/5_METALIC.jpg','82','https://discord.gg/PUSNgnCVjR', '');
 let azu = new Clan('Azure Spirit [SEA]','838085789841752134','lo','100','https://discord.gg/mFB59MeuKf','');
 let str = new Clan('Strawberry Fields [SEA]','1000623144786198548','','31+','','');
-let bad = new Clan(nam,id,lo,le,li,ti)
+//let bad = new Clan(nam,id,lo,le,li,ti)
 
 
 // Created Embed
