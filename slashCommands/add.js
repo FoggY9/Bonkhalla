@@ -47,7 +47,7 @@ run: (client, interaction, options) => {
 
             membr.roles.add(interaction.guild.roles.cache.get(target)).then(
                 interaction.reply({embeds: [done], ephemeral: false})
-            ).catch(() =>{interaction.channel.send({content: 'error giving role'})});
+            ).catch(() =>{interaction.reply({content: 'error giving role', ephemeral: false})});
             }
 }
 }

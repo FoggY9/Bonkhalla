@@ -11,7 +11,7 @@ var roles = await interaction.member.roles
         if(roles.cache.has(clanrole[i])){
           let roleName =  roles.cache.find(r => r.id === clanrole[i]).name;
             roles.remove(interaction.guild.roles.cache.get(clanrole[i]))
-           let done = new MessageEmbed().setColor('BLUE').setDescription(`🔵 **|** **${interaction.member.user.username + '#' + interaction.member.user.discriminator}** has removed **${roleName}** Clan Role`).setTimestamp()
+           let done = new MessageEmbed().setColor('BLUE').setDescription(`🔵 **|** **${interaction.member.user.username + '#' + interaction.member.user.discriminator}** has removed **${roleName}** Clan Role`).setFooter({ text: `action by ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' }).setTimestamp()
             interaction.channel.send({embeds: [done]})
         }
     }

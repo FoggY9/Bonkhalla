@@ -2,10 +2,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: 'remove',
 run: (client, interaction, options) => {
-    interaction.reply({
-        content: 'Taking action',
-        ephemeral: true
-    })
+
     // Clan roles
     const {LeaderRoleId} = require('../config.json');
 
