@@ -85,5 +85,27 @@ export default (client:any) =>{
         name: 'leaveclan',
         description: 'remove all clan roles'
     })
+    commands.create({
+        name: 'add',
+        description: 'give clan role',
+        options: [
+            {
+            name: 'clan-name',
+            description: 'the clan role you want to give',
+            choices:[
+                {name: 'Azure Spirit', value: 'azu'}, 
+                {name: '7t1 Bangladesh', value: '7t1'},
+                {name: 'Bedroom Community', value: 'bed'},
+                {name: 'Persistence', value: 'per'},
+                {name: 'Five Finger N Extra', value: 'fiv'},
+                {name: 'Strawberry Field', value: 'str'},
+                {name: 'Khudarto', value: 'khu'},
+                {name: 'Bad 2v2 Players', value: 'bad'}
+            ],
+            required: true,
+            type: Constants.ApplicationCommandOptionTypes.STRING
+        }
+    ]
+    })
 
 }
