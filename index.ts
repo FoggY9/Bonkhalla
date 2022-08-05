@@ -3,7 +3,7 @@ import { Client, Collection, Intents } from 'discord.js';
 import dotenv from 'dotenv';
 dotenv.config()
 // Express web
-import express from 'express';
+const express = require('express');
 const app:any = express();
 const port = process.env.PORT || 3000;
 app.get('/', (req:any, res:any) => res.send('Brawlhalla bangladesh official bot is Online'));
