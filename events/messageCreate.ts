@@ -5,7 +5,10 @@ const escapeRegex = (str:string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 let PREFIX = process.env['PREFIX'];
 
  if (message.author.bot) return;  if (!message.guild) return;
-
+  if (message.channel.type === 'DM') {
+    client.channels.cache.get('955447531716878427').send({content:`${message.author.username} Dm'd Me \n content: ${message.content}`})
+    
+  }
   const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(PREFIX!)})\\s*`);
     if (!prefixRegex.test(message.content)) return;
   const [, matchedPrefix] = message.content.match(prefixRegex);

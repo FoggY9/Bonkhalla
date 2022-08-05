@@ -1,5 +1,5 @@
 {
-  "name": "Bonkhalla",
+  "name": "bonkhalla",
   "version": "2.0.0",
   "description": "a dc bot for bbo",
   "main": "index.ts",
