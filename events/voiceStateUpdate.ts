@@ -1,6 +1,5 @@
 import { joinVoiceChannel } from '@discordjs/voice';
 export default (client:any, oldState:any, newState:any) => {
-console.log('vc log');
 
   const { Category, VcOne, VcTwo, VcThree } = require('../config.json')
   
