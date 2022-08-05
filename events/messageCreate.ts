@@ -2,11 +2,16 @@
 export default async(client:any, message:any) =>{
 
 const escapeRegex = (str:string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-let PREFIX = process.env['PREFIX'];
+let PREFIX = process.env['PREFIX'];if (message.channel.type === 'DM') {
 
- if (message.author.bot) return;  if (!message.guild) return;
+  client.channels.cache.get('955447531716878427').send({content:`${message.author.username} Dm'd Me \n content: ${message.content}`})
+}
+
+ 
+
+if (message.author.bot) return;  if (!message.guild) return;
   if (message.channel.type === 'DM') {
-    client.channels.cache.get('955447531716878427').send({content:`${message.author.username} Dm'd Me \n content: ${message.content}`})
+
     
   }
   const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(PREFIX!)})\\s*`);
