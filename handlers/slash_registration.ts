@@ -86,8 +86,8 @@ export default (client:any) =>{
         description: 'remove all clan roles'
     })
     commands.create({
-        name: 'add',
-        description: 'give clan role',
+        name: 'claninfo',
+        description: 'view clan details',
         options: [
             {
             name: 'clan-name',
