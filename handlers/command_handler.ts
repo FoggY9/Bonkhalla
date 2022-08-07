@@ -14,5 +14,5 @@ export default (client:any) =>{
     }
   }
   }
-  ['assignClanRole', 'removeClanRole','utility', 'aiChat'].forEach(e => load_dir(e));
+  ['assignClanRole', 'removeClanRole','utility'].forEach(e => load_dir(e));
 }
