@@ -1,4 +1,5 @@
 import { joinVoiceChannel } from '@discordjs/voice';
+import { ChannelType} from 'discord.js';
 export default (client:any, oldState:any, newState:any) => {
 
   const { Category, VcOne, VcTwo, VcThree } = require('../config.json')
@@ -15,7 +16,7 @@ export default (client:any, oldState:any, newState:any) => {
   // If Joins Vc, even if changed vc and joined
   if (oldState.channel !== newState.channel && newState.channel !== null) {
       if(newState.channel.id == crt_custom_lobby){ CreateVc(newState, 'Custom Lobby', '8');}
-      else if(newState.channel.id == crt_2s_lobby){CreateVc(newState, '2v2 Lobby', '4');}
+      else if(newState.channel.id == crt_2s_lobby){CreateVc(newState, '2v2 Lobby','4');}
       else if(newState.channel.id == crt_1s_lobby){CreateVc(newState, '1v1 Lobby', '2');}
     }
   
@@ -68,17 +69,12 @@ export default (client:any, oldState:any, newState:any) => {
   async function CreateVc(user:any, name:string, userlimit:string){
   
     client.channels.cache.get('955447531716878427').send({content: ` :: ${user.member.user.username}#${user.member.user.discriminator} :: Created  ${name}`})
-  await user.guild.channels.create(name, {  type: "GUILD_VOICE",  parent: Category,})
+  await user.guild.channels.create({name: name, type: ChannelType.GuildVoice, parent: Category, userLimit: userlimit, rtcRegion: 'singapore'})
     .then(async (vc:any) => {
       client.jointocreatemap.set(`tempvc_${vc.guild.id}_${vc.id}`, vc.id);
       try {await user.setChannel(vc);}
       catch (error) {setTimeout(() => {checkVc(vc)}, 1000 * 5);}
-  
-        vc.userLimit = userlimit;
-        vc.rtcRegion = "singapore";
-        vc.rtc_region = "singapore";
-      await vc.permissionOverwrites.set([
-        {   id: user.guild.id, allow: ['VIEW_CHANNEL', 'CONNECT'], }]);
+
     }).catch((err:string) => console.log(err));
   }
   
