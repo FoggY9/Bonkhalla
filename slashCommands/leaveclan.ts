@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 export const name = 'leaveclan';
 export const run = async(client:any, interaction:any, options:any) => {
@@ -11,7 +11,7 @@ var roles = await interaction.member.roles
         if(roles.cache.has(clanrole[i])){
           let roleName =  roles.cache.find((r:any) => r.id === clanrole[i]).name;
             roles.remove(interaction.guild.roles.cache.get(clanrole[i]))
-           let done = new MessageEmbed().setColor('BLUE').setDescription(`🔵 **|** **${interaction.member.user.username + '#' + interaction.member.user.discriminator}** has removed **${roleName}** Clan Role`).setFooter({ text: `action by ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' }).setTimestamp()
+           let done = new EmbedBuilder().setColor('#0000FF').setDescription(`🔵 **|** **${interaction.member.user.username + '#' + interaction.member.user.discriminator}** has removed **${roleName}** Clan Role`).setFooter({ text: `action by ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' }).setTimestamp()
             interaction.channel.send({embeds: [done]})
         }
     }

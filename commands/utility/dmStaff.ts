@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 export const info = {
   name: "dmstaff",
@@ -39,9 +39,9 @@ for(let i = 0; i < allstaffs.length; i++){
 
   let textscs = sendy.join('**,** ')
   let textfld = sendx.join('**,** ')
- let embed = new MessageEmbed().setTitle('🟣 | Direct Messaging...')
- if(textscs)embed.addField('🟢 | Sending successful', '> ' + textscs, false)
- if(textfld)embed.addField('⭕ | Sending Failed', '> ' + textfld, false)
+ let embed = new EmbedBuilder().setTitle('🟣 | Direct Messaging...')
+ if(textscs)embed.addFields({name:'🟢 | Sending successful', value:'> ' + textscs, inline:false})
+ if(textfld)embed.addFields({name:'⭕ | Sending Failed', value:'> ' + textfld, inline:false})
 
 message.channel.send({embeds: [embed]});
   }

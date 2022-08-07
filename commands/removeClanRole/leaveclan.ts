@@ -1,4 +1,4 @@
-import { MessageEmbed } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 export const info = {
   name: "leaveclan",
   aliases: ["leaveclans"],
@@ -11,7 +11,7 @@ for(let i = 0; i < clanrole.length;i++){
     if(roles.cache.has(clanrole[i])){
       let roleName = roles.cache.find((r:any) => r.id === clanrole[i]).name;
        await roles.remove(message.guild.roles.cache.get(clanrole[i]))
-       let done = new MessageEmbed().setColor('BLUE').setDescription(`🔵 **|** **${message.author.username + '#' + message.author.discriminator}** has removed **${roleName}** Clan Role`).setTimestamp()
+       let done = new EmbedBuilder().setColor('#0000FF').setDescription(`🔵 **|** **${message.author.username + '#' + message.author.discriminator}** has removed **${roleName}** Clan Role`).setTimestamp()
        await message.channel.send({embeds: [done]})
     }
 }

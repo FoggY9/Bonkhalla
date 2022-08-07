@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 type str = string
 export const info = {
   name: "clandetail",
@@ -39,7 +39,7 @@ let str = new Clan('Strawberry Fields [SEA]','1000623144786198548','','31+','','
 
 
 // Created Embed
-let embed = new MessageEmbed().setColor('#FFFFFF');
+let embed = new EmbedBuilder().setColor('#FFFFFF');
 
 // Get Targeted Clan
      if(args[0] == 'bed'.toLowerCase()) var target = bed;
@@ -67,7 +67,7 @@ if(mmbr.roles.cache.has('851722247206600704')) leaderString = leaderString + ` <
 })
 
   // Leaders Field
-  embed.addField('• Clan Leaders', leaderString)
+  embed.addFields({name:'• Clan Leaders', value:leaderString})
 // Mark Members
 let memberString = '';
 memberList.forEach(element => {
@@ -75,22 +75,23 @@ memberList.forEach(element => {
 });
 
   // Members Field
-  embed.addField(`• Clan Members [${memberList.length}]`, memberString)
+  embed.addFields({name:`• Clan Members [${memberList.length}]`, value:memberString})
 
 // check if logo, level, Discord Server and set it in description
 
 if (target.level.length) {
-  embed.addField(`Clan level`, target.level, true)
+  embed.addFields({name:`Clan level`,value: target.level, inline:true})
 }
 if (target.link.length) {
-  embed.addField(`Discord Server`, target.link, true)
+  embed.addFields({name:`Discord Server`, value:target.link, inline:true})
+}
+if (target.title.length) {
+  embed.addFields({name:`Titles`, value:target.title, inline:false})
 }
 if (target.logo.length) {
   embed.setThumbnail(target.logo)
 }
-if (target.title.length) {
-  embed.addField(`Titles`, target.title)
-}
+
 
 
 // Send Result
