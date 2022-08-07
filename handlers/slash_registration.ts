@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType } from 'discord.js';
 export default async(client:any) =>{
 
-    let guild = client.guilds.cache.get('864792830673027102');
+    let guild = client.guilds.cache.get('747565321745072359');
     let commands;
     if (guild) {
         commands = guild.commands

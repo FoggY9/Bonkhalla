@@ -2,10 +2,10 @@ import { joinVoiceChannel } from '@discordjs/voice';
 
 export default async(client:any) => {
     // When Ready
-    console.log('BBO bot is Online!');
+    console.log('BonkHalla is Online!');
     
     client.user.setActivity('Brawlhalla', { type: 'STREAMING', url: "https://www.twitch.tv/brawlhalla_bangladesh"});
- /*  
+  
     joinvc();
 
 async function joinvc(){
@@ -30,7 +30,7 @@ function checkvcs() {
 }
 checkvcs();
 setInterval(checkvcs, 10000);
-*/
+
 
 require(`../handlers/slash_registration`).default(client)
 
