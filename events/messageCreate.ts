@@ -1,11 +1,9 @@
 
 export default async(client:any, message:any) =>{
 
-console.log(message);
-
 const escapeRegex = (str:string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-let PREFIX = "+";
+let PREFIX = process.env['PREFIX'] || '^';
  
 if (message.author.bot) return;  if (!message.guild) return;
 
