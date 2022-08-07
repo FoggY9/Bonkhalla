@@ -1,10 +1,11 @@
 import { joinVoiceChannel } from '@discordjs/voice';
+import { ActivityType } from 'discord.js';
 
 export default async(client:any) => {
     // When Ready
     console.log('BonkHalla is Online!');
     
-    client.user.setActivity('Brawlhalla', { type: 'STREAMING', url: "https://www.twitch.tv/brawlhalla_bangladesh"});
+    client.user.setActivity({activities: [{ name: `Brawlhalla`, type: ActivityType.Streaming, url: "https://www.twitch.tv/brawlhalla_bangladesh" }],status: 'idle' });
   
     joinvc();
 
