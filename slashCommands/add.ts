@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 export const name = 'add';
 export const run = (client:any, interaction:any, options:any) => {
 
@@ -27,15 +27,15 @@ export const run = (client:any, interaction:any, options:any) => {
         else if(targetClanPrefix == 'Strawberry Field') var target = Strawberry_Field;
         else if(targetClanPrefix == 'Strawberry Field') var target = Bad_2v2_Players;
 
-            let accessDn = new MessageEmbed().setColor('RED').setDescription(
+            let accessDn = new EmbedBuilder().setColor('#FF0000').setDescription(
                 `❌ **|** ${interaction.user} You can't give roles to members, you dont have permission \nrequired-role: **Clan Leader**`)
             
             if(!interaction.member.roles.cache.has(LeaderRoleId)) return interaction.reply({embeds: [accessDn], ephemeral: false})
 
             
             var membr = interaction.guild.members.cache.get(targetId)
-            let alrdyhas = new MessageEmbed().setColor('YELLOW').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** already has this clan role`)
-            let done = new MessageEmbed().setColor('GREEN').setDescription(`🟢 **|** **${membr.user.username + '#' + membr.user.discriminator}** has added **${options._hoistedOptions[0].value}** Clan Role`).setTimestamp()
+            let alrdyhas = new EmbedBuilder().setColor('#FFFF00').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** already has this clan role`)
+            let done = new EmbedBuilder().setColor('#00FF00').setDescription(`🟢 **|** **${membr.user.username + '#' + membr.user.discriminator}** has added **${options._hoistedOptions[0].value}** Clan Role`).setTimestamp()
             .setFooter({ text: `action by ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' })
             
             if(membr.roles.cache.has(target!)){interaction.reply({embeds: [alrdyhas], ephemeral: false})}

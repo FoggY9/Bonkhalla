@@ -1,5 +1,5 @@
-import { Constants } from 'discord.js';
-export default (client:any) =>{
+import { ApplicationCommandOptionType, ApplicationCommandType } from 'discord.js';
+export default async(client:any) =>{
 
     let guild = client.guilds.cache.get('747565321745072359');
     let commands;
@@ -9,25 +9,29 @@ export default (client:any) =>{
     }else{
     commands = client.application.commands
     }
-    commands.create({
+     commands.create({
         name: 'say',
         description: 'say something',
+        type: ApplicationCommandType.ChatInput,
         options: [
             {
              name: 'content',
              description: 'give your text here',
              required: true,
-             type:  Constants.ApplicationCommandOptionTypes.STRING
+             type:  ApplicationCommandOptionType.String
             }]
     ,
-    })
-    commands.create({
+    }
+    )
+     commands.create({
         name: 'help',
         description: 'get info of this bot and its commands'
-    })
-    commands.create({
+    }
+    )
+     commands.create({
         name: 'add',
         description: 'give clan role',
+        type: ApplicationCommandType.ChatInput,
         options: [
             {
             name: 'clan-name',
@@ -43,19 +47,21 @@ export default (client:any) =>{
                 {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'}
             ],
             required: true,
-            type: Constants.ApplicationCommandOptionTypes.STRING
+            type: ApplicationCommandOptionType.String
         },
     {
             name: 'target-member',
             description: 'the member you want to give',
             required: true,
-            type: Constants.ApplicationCommandOptionTypes.USER
+            type: ApplicationCommandOptionType.User
     }
     ]
-    })
-    commands.create({
+    }
+    )
+     commands.create({
         name: 'remove',
         description: 'remove clan role',
+        type: ApplicationCommandType.ChatInput,
         options: [
             {
             name: 'clan-name',
@@ -71,23 +77,28 @@ export default (client:any) =>{
                 {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'}
             ],
             required: true,
-            type: Constants.ApplicationCommandOptionTypes.STRING
+            type: ApplicationCommandOptionType.String
         },
     {
             name: 'target-member',
             description: 'the member you want to remove',
             required: true,
-            type: Constants.ApplicationCommandOptionTypes.USER
+            type: ApplicationCommandOptionType.User
     }
     ]
-    })
-    commands.create({
+    }
+    )
+     commands.create({
         name: 'leaveclan',
-        description: 'remove all clan roles'
-    })
-    commands.create({
+        description: 'remove all clan roles',
+        type: ApplicationCommandType.ChatInput,
+        
+    }
+    )
+     commands.create({
         name: 'claninfo',
         description: 'view clan details',
+        type: ApplicationCommandType.ChatInput,
         options: [
             {
             name: 'clan-name',
@@ -103,9 +114,10 @@ export default (client:any) =>{
                 {name: 'Bad 2v2 Players', value: 'bad'}
             ],
             required: true,
-            type: Constants.ApplicationCommandOptionTypes.STRING
+            type: ApplicationCommandOptionType.String
         }
     ]
     })
+    
 
 }

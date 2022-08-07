@@ -13,10 +13,11 @@
     "@discordjs/rest": "^1.0.1",
     "@discordjs/voice": "^0.8.0",
     "discord-api-types": "^0.37.0",
-    "discord.js": "^13.6.0",
+    "discord.js": "^14.1.2",
     "dotenv": "16.0.0",
     "express": "4.17.3",
     "fs": "0.0.1-security",
+    "smartestchatbot": "^2.0.3",
     "ts-node": "^10.9.1"
   },
   "repository": {

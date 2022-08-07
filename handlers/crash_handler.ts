@@ -11,8 +11,8 @@ export default (client:any) => {
          console.log(' [antiCrash] :: Uncaught Exception/Catch (MONITOR)');
          console.log(err, origin);
      });
-     process.on('multipleResolves', (type, promise, reason) => {
+     /*process.on('multipleResolves', (type, promise, reason) => {
          console.log(' [antiCrash] :: Multiple Resolves');
          console.log(type, promise, reason);
-     });
+     });*/
  }

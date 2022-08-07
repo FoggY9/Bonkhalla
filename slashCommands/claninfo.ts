@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 type str = string;
 
 export const name = 'claninfo';
@@ -34,7 +34,7 @@ export const run = (client:any, interaction:any, options:any) => {
   
   
   // Created Embed
-  let embed = new MessageEmbed().setColor('#FFFFFF');
+  let embed = new EmbedBuilder().setColor('#FFFFFF');
 
   let targetClan = options._hoistedOptions[0].value;
   // Get Targeted Clan
@@ -63,7 +63,7 @@ export const run = (client:any, interaction:any, options:any) => {
   })
   
     // Leaders Field
-    embed.addField('• Clan Leaders', leaderString)
+    embed.addFields({name:'• Clan Leaders', value:leaderString})
   // Mark Members
   let memberString = '';
   memberList.forEach(element => {
@@ -71,21 +71,21 @@ export const run = (client:any, interaction:any, options:any) => {
   });
   
     // Members Field
-    embed.addField(`• Clan Members [${memberList.length}]`, memberString)
+    embed.addFields({name:`• Clan Members [${memberList.length}]`, value:memberString})
   
   // check if logo, level, Discord Server and set it in description
   
   if (target.level.length) {
-    embed.addField(`Clan level`, target.level, true)
+    embed.addFields({name: `Clan level`, value: target.level, inline:true})
   }
   if (target.link.length) {
-    embed.addField(`Discord Server`, target.link, true)
+    embed.addFields({name:`Discord Server`,value: target.link, inline:true})
   }
   if (target.logo.length) {
     embed.setThumbnail(target.logo)
   }
   if (target.title.length) {
-    embed.addField(`Titles`, target.title)
+    embed.addFields({name:`Titles`, value:target.title})
   }
   
   

@@ -1,6 +1,8 @@
 // Necessary things
-import { Client, Collection, Intents } from 'discord.js';
+import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
+
+
 dotenv.config()
 // Express web
 const express = require('express');
@@ -11,11 +13,16 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 // Creating bot
 const client:any = new Client({ intents: [
-    Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS,  Intents.FLAGS.GUILD_VOICE_STATES,
-    Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
+    GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,  GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences, GatewayIntentBits.DirectMessages, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
 // Login With Token
 client.login(process.env['TOKEN']);
+
+// Ai Chat
+const smartestchatbot = require('smartestchatbot');
+client.chatter = new smartestchatbot.Client();
+
 
 // Vc Record Map 
 client.jointocreatemap = new Map();
@@ -25,6 +32,7 @@ client.commands = new Collection();
 client.events = new Collection();
 client.slashcmd = new Collection();
 
+// Run handler Files
 ['command_handler', 'event_handler', 'crash_handler' , 'slashcmd_handler'].forEach(handler =>{
   
   let handlr = require(`./handlers/${handler}`)
