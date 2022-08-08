@@ -120,7 +120,7 @@ export default async(client:any) =>{
     })
     commands.create({
         name: 'whois',
-        description: 'remove all clan roles',
+        description: 'know about a person',
         type: ApplicationCommandType.ChatInput,
         options: [
             {
