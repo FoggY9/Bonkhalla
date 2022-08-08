@@ -3,7 +3,7 @@ export const name = 'whois';
 export const run = (client:any, interaction:any, options:any) => {
 let red = 'one of the frienliest admins in this server'
 let fog = 'an average introverted programmer'
-let fri = 'Chapabaaz Gay'
+let fri = 'top level Chapabaaz '
 let juj = 'a responsible mod with toxic behavior'
 let cry = 'a passive bull player [but he is friendly, unlike others]'
 
