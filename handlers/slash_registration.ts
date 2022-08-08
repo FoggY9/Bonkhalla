@@ -118,6 +118,28 @@ export default async(client:any) =>{
         }
     ]
     })
+    commands.create({
+        name: 'whois',
+        description: 'remove all clan roles',
+        type: ApplicationCommandType.ChatInput,
+        options: [
+            {
+            name: 'person-name',
+            description: 'choose a nigga',
+            choices:[
+                {name: 'Red Apple', value: 'red'}, 
+                {name: 'FoggY', value: 'fog'},
+                {name: 'Frisk', value: 'fri'},
+                {name: 'Juju', value: 'juj'},
+                {name: 'Crystal', value: 'cry'},
+            ],
+            required: true,
+            type: ApplicationCommandOptionType.String
+        }
+    ]
+        
+    }
+    )
     
 
 }
