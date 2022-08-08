@@ -8,11 +8,12 @@ let juj = 'a responsible mod with toxic behavior'
 let cry = 'a passive bull player [but he is friendly, unlike others]'
 
 const choosed = options._hoistedOptions.value
+var target:string;
+if (choosed == 'red') target = red
+else if (choosed == 'fog') target = fog
+else if (choosed == 'fri') target = fri
+else if (choosed == 'juj') target = juj
+else if (choosed == 'cry') target = cry
 
-if (choosed == 'red') var target = red
-else if (choosed == 'fog') var target = fog
-else if (choosed == 'fri') var target = fri
-else if (choosed == 'juj') var target = juj
-else if (choosed == 'cry') var target = cry
-
+interaction.reply({content: target!, ephemeral: true})
 }
