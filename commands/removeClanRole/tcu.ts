@@ -1,15 +1,15 @@
 import { EmbedBuilder } from "discord.js";
 
 export const info = {
-  name: "removeroleazu",
-  aliases: ['removeazu'],
-  description: "removes azure role of a member",}
-  export async function execute(client:any, message:any) {
+  name: "removeroletcu",
+  aliases: ['removetcu'],
+  description: "removes tcu role of a member",}
+export async function execute(client:any, message:any) {
  
 
-const clanName = 'Azure Spirit'
+const clanName = 'TCU GANG'
 const {LeaderRoleId} = require('../../config.json');
-const roleid = '838085789841752134';
+const roleid = '1007257584228646974';
 
 let accessDn = new EmbedBuilder().setColor('#FF0000').setDescription(`❌ **|** ${message.author} You can't remove roles of members, you dont have permission \nrequired-role: **Clan Leader**`)
 let plsMntn = new EmbedBuilder().setColor('#FF0000').setDescription(`⭕ **|** ${message.author} please mention someone`)

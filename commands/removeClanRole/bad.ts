@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+import { EmbedBuilder } from "discord.js";
 
 export const info = {
   name: "removerolebad",
@@ -16,20 +16,20 @@ let plsMntn = new EmbedBuilder().setColor('#FF0000').setDescription(`⭕ **|** $
 
 
 if(!message.member.roles.cache.has(LeaderRoleId)){
-    return message.channel.send({embeds: [accessDn]})
+    return message.reply({embeds: [accessDn]})
 }
 
-if(message.mentions.members.size == 0) return message.channel.send({embeds: [plsMntn]})
+if(message.mentions.members.size == 0) return message.reply({embeds: [plsMntn]})
 
     message.mentions.members.forEach((membr:any) => {
 let alrdyhas = new EmbedBuilder().setColor('#808080').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** doesn't has this clan role`)
 let done = new EmbedBuilder().setColor('#0000FF').setDescription(`🔵 **|** **${membr.user.username + '#' + membr.user.discriminator}** has removed **${clanName}** Clan Role`).setTimestamp()
 .setFooter({ text: `action by ${message.author.username}#${message.author.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' })
-        if(!membr.roles.cache.has(roleid)){message.channel.send({embeds: [alrdyhas]})}
+        if(!membr.roles.cache.has(roleid)){message.reply({embeds: [alrdyhas]})}
         else if(membr.roles.cache.has(roleid)){
 
         membr.roles.remove(message.guild.roles.cache.get(roleid)).then(
-          message.channel.send({embeds: [done]})
+          message.reply({embeds: [done]})
         );
         }
 

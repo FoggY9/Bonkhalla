@@ -7,7 +7,7 @@ export default async(client:any) => {
     
     client.user.setPresence({
         activities: [{ name: `Brawlhalla`, type: ActivityType.Streaming,
-        url: "https://www.twitch.tv/brawlhalla_bangladesh" }],status: 'idle' });
+        url: "https://www.twitch.tv/brawlhalla_bangladesh" }] });
   
     joinvc();
 

@@ -44,7 +44,8 @@ export default async(client:any) =>{
                 {name: 'Five Finger N Extra', value: 'Five Finger N Extra'},
                 {name: 'Strawberry Field', value: 'Strawberry Field'},
                 {name: 'Khudarto', value: 'Khudarto'},
-                {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'}
+                {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'},
+                {name: 'TCU GANG', value: 'TCU GANG'}
             ],
             required: true,
             type: ApplicationCommandOptionType.String
@@ -74,7 +75,8 @@ export default async(client:any) =>{
                 {name: 'Five Finger N Extra', value: 'Five Finger N Extra'},
                 {name: 'Strawberry Field', value: 'Strawberry Field'},
                 {name: 'Khudarto', value: 'Khudarto'},
-                {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'}
+                {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'},
+                {name: 'TCU GANG', value: 'TCU GANG'}
             ],
             required: true,
             type: ApplicationCommandOptionType.String
@@ -111,7 +113,6 @@ export default async(client:any) =>{
                 {name: 'Five Finger N Extra', value: 'fiv'},
                 {name: 'Strawberry Field', value: 'str'},
                 {name: 'Khudarto', value: 'khu'},
-                {name: 'Bad 2v2 Players', value: 'bad'}
             ],
             required: true,
             type: ApplicationCommandOptionType.String

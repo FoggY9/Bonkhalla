@@ -15,21 +15,21 @@ let accessDn = new EmbedBuilder().setColor('#FF0000').setDescription(`❌ **|** 
 let plsMntn = new EmbedBuilder().setColor('#FF0000').setDescription(`⭕ **|** ${message.author} please mention someone`)
 
 
-if(!message.member.roles.cache.has(LeaderRoleId)) return message.channel.send({embeds: [accessDn]})
+if(!message.member.roles.cache.has(LeaderRoleId)) return message.reply({embeds: [accessDn]})
 
 
-if(message.mentions.members.size == 0) return message.channel.send({embeds: [plsMntn]})
+if(message.mentions.members.size == 0) return message.reply({embeds: [plsMntn]})
 
     message.mentions.members.forEach((membr:any) => {
 let alrdyhas = new EmbedBuilder().setColor('#FFFF00').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** already has this clan role`)
 let done = new EmbedBuilder().setColor('#00FF00').setDescription(`🟢 **|** **${membr.user.username + '#' + membr.user.discriminator}** has added **${clanName}** Clan Role`).setTimestamp()
 .setFooter({ text: `action by ${message.author.username}#${message.author.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' })
 
-        if(membr.roles.cache.has(roleid)){message.channel.send({embeds: [alrdyhas]})}
+        if(membr.roles.cache.has(roleid)){message.reply({embeds: [alrdyhas]})}
         else if(!membr.roles.cache.has(roleid)){
 
         membr.roles.add(message.guild.roles.cache.get(roleid)).then(
-          message.channel.send({embeds: [done]})
+          message.reply({embeds: [done]})
         );
         }
 

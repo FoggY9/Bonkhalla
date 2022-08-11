@@ -1,14 +1,14 @@
 import { EmbedBuilder } from "discord.js";
 
 export const info = {
-  name: "bad_add",
-  aliases: ['addbad', 'givebad'],
-  description: "adds bad_2v2_players role to a member",}
-  export async function execute(client:any, message:any) {
+  name: "tcu_add",
+  aliases: ['addtcu', 'givetcu'],
+  description: "adds tcu role to a member",}
+export async function execute(client:any, message:any) {
 
-const clanName = 'bad 2v2 players'
+const clanName = 'TCU GANG'
 const {LeaderRoleId} = require('../../config.json');
-const roleid = '1004325446797762611';
+const roleid = '1007257584228646974';
 
 let accessDn = new EmbedBuilder().setColor('#FF0000').setDescription(`❌ **|** ${message.author} You can't give roles to members, you dont have permission \nrequired-role: **Clan Leader**`)
 let plsMntn = new EmbedBuilder().setColor('#FF0000').setDescription(`⭕ **|** ${message.author} please mention someone`)
