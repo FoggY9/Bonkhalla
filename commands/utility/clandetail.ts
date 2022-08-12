@@ -33,7 +33,7 @@ let per = new Clan('Persistence [SEA]','877450177991020584','','','','Winner of 
 let khu = new Clan('Khudarto [SEA]','850939055872147456','','','','');
 let fiv = new Clan('Five Fingers n Extra [SEA]','799676323948920902','','','','');
 let _7t1 = new Clan('7t1 Bangladesh [SEA]','772444761906348052','https://media.discordapp.net/attachments/903874086160191493/982970626694316032/5_METALIC.jpg','82','https://discord.gg/PUSNgnCVjR', '');
-let azu = new Clan('Azure Spirit [SEA]','838085789841752134','','100','https://discord.gg/mFB59MeuKf','Partnered Server');
+let azu = new Clan('Azure Spirit [SEA]','838085789841752134','https://media.discordapp.net/attachments/871427142808916048/1007612767555039262/unknown.png?width=294&height=282','100','https://discord.gg/mFB59MeuKf','Partnered Server');
 let str = new Clan('Strawberry Fields [SEA]','1000623144786198548','','31+','','');
 //let bad = new Clan(nam,id,lo,le,li,ti)
 
