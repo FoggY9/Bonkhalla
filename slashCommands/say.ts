@@ -1,4 +1,4 @@
-
+// an Admin only command
 
 export const name = 'say';
 export const run = (client:any, interaction:any, options:any) => {

@@ -3,10 +3,12 @@ import { EmbedBuilder } from "discord.js";
 export const name = 'leaveclan';
 export const run = async(client:any, interaction:any, options:any) => {
 
+    // All Clanrole Id's
     let clanrole = ['838085789841752134', '877450177991020584', '850939055872147456', '799676323948920902', '851302141499015208', '772444761906348052', '1000623144786198548', '1004325446797762611', '1007257584228646974']
 
 var roles = await interaction.member.roles
 
+// checking if target has a clanrole
     for(let i = 0; i < clanrole.length;i++){
         if(roles.cache.has(clanrole[i])){
           let roleName =  roles.cache.find((r:any) => r.id === clanrole[i]).name;

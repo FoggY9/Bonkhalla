@@ -1,4 +1,4 @@
-
+// Its an useless command, feel free to ignore
 export const name = 'whois';
 export const run = (client:any, interaction:any, options:any) => {
 let red = 'one of the frienliest admins in this server'
