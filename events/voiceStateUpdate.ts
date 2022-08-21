@@ -41,7 +41,7 @@ export default (client:any, oldState:any, newState:any) => {
             return oldState.channel.delete().catch((err:any) => console.log(err)); 
       }}
   }
-  // Moved vc >> changed vc
+  // Moved vc >> changed vc || leaving
    if (oldState.channel && newState.channel && oldState.channel !== newState.channel) {
           // if has vc record
         if (client.jointocreatemap.get(`tempvc_${oldState.guild.id}_${oldState.channel.id}`)) {
@@ -73,7 +73,7 @@ export default (client:any, oldState:any, newState:any) => {
     .then(async (vc:any) => {
       client.jointocreatemap.set(`tempvc_${vc.guild.id}_${vc.id}`, vc.id);
       try {await user.setChannel(vc);}
-      catch (error) {setTimeout(() => {checkVc(vc)}, 1000 * 5);}
+      catch (error) {setTimeout(() => {checkVc(vc)}, 1000 * 2);}
 
     }).catch((err:string) => console.log(err));
   }
