@@ -19,10 +19,6 @@ const client:any = new Client({ intents: [
 // Login With Token
 client.login(process.env['TOKEN']);
 
-// Ai Chat
-const smartestchatbot = require('smartestchatbot');
-client.chatter = new smartestchatbot.Client();
-
 
 // Vc Record Map 
 client.jointocreatemap = new Map();
