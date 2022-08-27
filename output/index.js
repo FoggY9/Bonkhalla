@@ -31,3 +31,7 @@ client.slashcmd = new discord_js_1.Collection();
     let handlr = require(`./handlers/${handler}`);
     handlr.default(client);
 });
+
+const keepAlive = () => {
+    server.listen(6969,() => console.log( "The server is ready aswell." ));
+}
