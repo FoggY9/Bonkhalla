@@ -32,7 +32,6 @@ client.slashcmd = new discord_js_1.Collection();
     handlr.default(client);
 });
 
-keepAlive();
-const keepAlive = () => {
-    server.listen(6969,() => console.log( "The server is ready aswell." ));
-}
+setInterval(() => {
+    console.log('bot is alive');
+}, 1000 * 60 * 10);
