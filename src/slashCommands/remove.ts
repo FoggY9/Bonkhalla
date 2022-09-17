@@ -15,6 +15,7 @@ export const run = (client:any, interaction:any, options:any) => {
         let Strawberry_Field = '1000623144786198548';
         let Bad_2v2_Players = '1004325446797762611';
         let tcu = '1007257584228646974';
+        let bra = '1020366730184380446';
 
     
     let targetClanPrefix = options._hoistedOptions[0].value;
@@ -29,6 +30,7 @@ export const run = (client:any, interaction:any, options:any) => {
         else if(targetClanPrefix == 'Strawberry Field') var target = Strawberry_Field;
         else if(targetClanPrefix == 'Bad 2v2 Players') var target = Bad_2v2_Players;
         else if(targetClanPrefix == 'TCU GANG') var target = tcu;
+        else if(targetClanPrefix == 'Brawler of the Dead') var target = bra;
 
 let accessDn = new EmbedBuilder().setColor('#FF0000').setDescription(`❌ **|** ${interaction.user} You can't remove roles of members, you dont have permission \nrequired-role: **Clan Leader**`)
 

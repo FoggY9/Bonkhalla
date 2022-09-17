@@ -45,7 +45,9 @@ export default async(client:any) =>{
                 {name: 'Strawberry Field', value: 'Strawberry Field'},
                 {name: 'Khudarto', value: 'Khudarto'},
                 {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'},
-                {name: 'TCU GANG', value: 'TCU GANG'}
+                {name: 'TCU GANG', value: 'TCU GANG'},
+                {name: 'Brawler of the Dead', value: 'Brawler of the Dead'}
+                
             ],
             required: true,
             type: ApplicationCommandOptionType.String
@@ -76,7 +78,8 @@ export default async(client:any) =>{
                 {name: 'Strawberry Field', value: 'Strawberry Field'},
                 {name: 'Khudarto', value: 'Khudarto'},
                 {name: 'Bad 2v2 Players', value: 'Bad 2v2 Players'},
-                {name: 'TCU GANG', value: 'TCU GANG'}
+                {name: 'TCU GANG', value: 'TCU GANG'},
+                {name: 'Brawler of the Dead', value: 'Brawler of the Dead'}
             ],
             required: true,
             type: ApplicationCommandOptionType.String
