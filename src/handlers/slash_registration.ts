@@ -116,6 +116,8 @@ export default async(client:any) =>{
                 {name: 'Five Finger N Extra', value: 'fiv'},
                 {name: 'Strawberry Field', value: 'str'},
                 {name: 'Khudarto', value: 'khu'},
+                {name: 'TCU GANG', value: 'tcu'},
+                {name: 'Brawler of the Dead', value: 'bra'}
             ],
             required: true,
             type: ApplicationCommandOptionType.String

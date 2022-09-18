@@ -30,7 +30,8 @@ export const run = (client:any, interaction:any, options:any) => {
   let _7t1 = new Clan('7t1 Bangladesh [SEA]','772444761906348052','https://media.discordapp.net/attachments/903874086160191493/982970626694316032/5_METALIC.jpg','82','https://discord.gg/PUSNgnCVjR', '');
   let azu = new Clan('Azure Spirit [SEA]','838085789841752134','https://media.discordapp.net/attachments/871427142808916048/1007612767555039262/unknown.png?width=294&height=282','100','https://discord.gg/mFB59MeuKf','Partnered Server');
   let str = new Clan('Strawberry Fields [SEA]','1000623144786198548','','31+','','');
-  //let bad = new Clan(nam,id,lo,le,li,ti)
+  let tcu = new Clan('TCU GANG [SEA]','1007257584228646974','','','','')
+  let bra = new Clan('Brawler of the Dead [SEA]','1020366730184380446','','31+','','')
   
   
   // Created Embed
@@ -45,6 +46,8 @@ export const run = (client:any, interaction:any, options:any) => {
   else if(targetClan == '7t1') var target = _7t1;
   else if(targetClan == 'azu') var target = azu;
   else if(targetClan == 'str') var target = str;
+  else if(targetClan == 'tcu') var target = tcu;
+  else if(targetClan == 'bra') var target = bra;
   else{ return interaction.reply({content: 'cant find the clan \n Usage: *^claninfo <prefix>* \n first 3 letter of a clan name is its prefix.', ephemeral: false})}
   
   // Get Clan Name
