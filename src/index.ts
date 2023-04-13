@@ -6,61 +6,90 @@
   import dotenv from 'dotenv';
   
   dotenv.config()
+  let myPriority:string;
+  let spectatorBotId:string;
+  let interval:any;
 
 // login to spectator account
 const spectatorClient:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,
-  GatewayIntentBits.GuildPresences], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
+  GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildVoiceStates], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
   // Login With Token
 spectatorClient.login(process.env['SPEC_TOKEN']);
 
-// Spectator Seek
-spectatorClient.once('ready', ()=>{
-    // join vc
+// Spectator on Ready
+spectatorClient.once('ready', (c:any)=>{
+  // find my priority
+  spectatorBotId = c.user.id;
+  myPriority = spectatorClient.guilds.cache.get('864792830673027102').members.cache.get(spectatorBotId).nickname.split(' ')[1]
+
+  // join vc
   let channel = spectatorClient.channels.cache.get('1095956100647497738')
   joinVoiceChannel({
     channelId: channel.id,
     guildId: channel.guild.id,
     adapterCreator: channel.guild.voiceAdapterCreator,
   });
-  console.log('Spectator is Watching')
+  console.log('Started watching Bonkhalla, Priority: ' + myPriority)
+
+  // Checking interval
+  setTimeout(() => {
+    interval = setInterval(() => {
+      check()
+    }, 1_000);
+  }, 10_000);
+
 })
 
 // Infinity Loop
 let check = () => {
-  let isAlive = spectatorClient.guilds.cache.get('864792830673027102').members.cache.get('819227099340079145').presence
-  if(isAlive){
-    console.log('bot is active')
-      return;
-  }else if(!isAlive){
-    spectatorClient.channels.cache.get('1095959354244603984').send({content: `${process.env['HOSTNAME']} is taking over the Host`}).then(()=>{spectatorClient.destroy();})
-    console.log('bot is offline, starting bonkhalla')
-    clearInterval(interval);
+  let isAlive;
+  let presence = spectatorClient.guilds.cache.get('864792830673027102').members.cache.get('819227099340079145').presence;
+  if(presence){
+    isAlive = presence.status !== 'offline'
+  }else if(!presence){
+    isAlive = false;
+  }
+
+  if(isAlive){return;}
+  else if(!isAlive){
+    let run = () => {
       runBot();
+      spectatorClient.channels.cache.get('1095959354244603984').send({content: `${process.env['HOSTNAME']} is taking over the Host`})
+      console.log('bot is offline, starting bonkhalla')
+      clearInterval(interval);
+    }
+    // check vc members
+    let attendance:any = [];
+    let vcMembers = spectatorClient.channels.cache.get('1095956100647497738').members
+
+    // if there is anyone else
+     if(vcMembers.size > 1){
+      spectatorClient.channels.cache.get('1095956100647497738').members.forEach((element:any) => {
+        attendance.push(element.nickname.split(' ')[1])
+      });
+      attendance.sort()
+      if(attendance[0] == myPriority){run();}
+      else {spectatorClient.channels.cache.get('1095959354244603984').send({content: `priority: ${attendance[0]} Will take over`})}
+    }
+    // if others are sleeping
+    else if (vcMembers.size == 1 || vcMembers.size == 0){run();} 
   }
 } 
 
-// Check interval
-let interval = setInterval(() => {
-  check()
-}, 10_000);
-
-
 // Bot launching
 function runBot() {
-
-// Express web
-const express = require('express');
-const app:any = express();
-const port = process.env.PORT || 3000;
-app.get('/', (req:any, res:any) => res.send('Brawlhalla bangladesh official bot is Online'));
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
-
 // Creating bot
 const client:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,  GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.DirectMessages, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
 // Login With Token
 client.login(process.env['TOKEN']);
+
+// destroy spectator
+client.on('ready', ()=>{
+    console.log('shutting down spectator')
+    spectatorClient.destroy();
+})
 
 // Vc Record Map 
 client.jointocreatemap = new Map();
@@ -69,6 +98,7 @@ client.jointocreatemap = new Map();
 client.commands = new Collection();
 client.events = new Collection();
 client.slashcmd = new Collection();
+
 
 // Run handler Files
 ['command_handler', 'event_handler', 'crash_handler' , 'slashcmd_handler'].forEach(handler =>{

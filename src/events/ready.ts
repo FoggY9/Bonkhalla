@@ -2,6 +2,7 @@ import { joinVoiceChannel } from '@discordjs/voice';
 import { ActivityType } from 'discord.js';
 
 export default async(client:any) => {
+    
     // When Ready
     console.log('BonkHalla is Online!');
     
