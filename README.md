@@ -1,1 +1,1 @@
-# Brawlhalla Bangladesh Discord Bot
+# Brawlhalla Bangladesh Discord Bot (Bonkhalla)
