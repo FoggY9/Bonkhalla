@@ -43,7 +43,7 @@ let check = () => {
 // Check interval
 let interval = setInterval(() => {
   check()
-}, 20_000);
+}, 10_000);
 
 
 // Bot launching
