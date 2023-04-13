@@ -1,5 +1,8 @@
+
   // Necessary things to Import
   import { Client, Collection, GatewayIntentBits } from 'discord.js';
+  const { joinVoiceChannel } = require('@discordjs/voice');
+
   import dotenv from 'dotenv';
   
   dotenv.config()
@@ -13,21 +16,35 @@ spectatorClient.login(process.env['SPEC_TOKEN']);
 
 // Spectator Seek
 spectatorClient.once('ready', ()=>{
+    // join vc
+  let channel = spectatorClient.channels.cache.get('1095956100647497738')
+  joinVoiceChannel({
+    channelId: channel.id,
+    guildId: channel.guild.id,
+    adapterCreator: channel.guild.voiceAdapterCreator,
+  });
   console.log('Spectator is Watching')
 })
+
 // Infinity Loop
 let check = () => {
-  let isAlive = spectatorClient.guilds.cache.get('864792830673027102').members.cache.get('732554753342570516').presence
+  let isAlive = spectatorClient.guilds.cache.get('864792830673027102').members.cache.get('819227099340079145').presence
   if(isAlive){
     console.log('bot is active')
       return;
   }else if(!isAlive){
+    spectatorClient.channels.cache.get('1095959354244603984').send({content: `${process.env['HOSTNAME']} is taking over the Host`}).then(()=>{spectatorClient.destroy();})
+    console.log('bot is offline, starting bonkhalla')
+    clearInterval(interval);
       runBot();
   }
 } 
-setInterval(() => {
+
+// Check interval
+let interval = setInterval(() => {
   check()
 }, 20_000);
+
 
 // Bot launching
 function runBot() {
