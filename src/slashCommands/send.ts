@@ -7,8 +7,7 @@ export const run = async(client:any, interaction:any, options:any) => {
   if(!interaction.member.permissions.has(perms)){return interaction.reply({content: 'you dont have permissions to use this command', ephemeral: true})}
 
 let members:string[] = []
-let targetRole = options._hoistedOptions[0].value; //collecting specified role
-if(!targetRole)return interaction.channel.send({content: 'error: cannot get role'})
+let targetRole = interaction.guild.roles.cache.get(options._hoistedOptions[0].value); //collecting specified role
 //get role mention
 
 if(!targetRole.members) return interaction.channel.send({content: 'nobody has this role'})
