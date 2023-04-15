@@ -146,6 +146,43 @@ export default async(client:any) =>{
         
     }
     )
-    
+    commands.create({
+        name: 'bot status',
+        description: 'check bot status'
+    })
+    commands.create({
+        name: 'dmstaffs',
+        description: 'send dm to staffs',
+        type: ApplicationCommandType.ChatInput,
+        options: [
+            {
+                name: 'content',
+                description: 'give your message here',
+                required: true,
+                type:  ApplicationCommandOptionType.String
+            }
+    ]
+    }
+    )
+    commands.create({
+        name: 'send',
+        description: 'send dm to role members',
+        type: ApplicationCommandType.ChatInput,
+        options: [
+            {
+                name: 'Role',
+                description: 'targeted role',
+                required: true,
+                type:  ApplicationCommandOptionType.Role
+            },
+            {
+                name: 'Content',
+                description: 'give your message here',
+                required: true,
+                type:  ApplicationCommandOptionType.String
+            }
+    ]
+    }
+    )
 
 }

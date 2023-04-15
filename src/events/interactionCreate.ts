@@ -13,5 +13,4 @@ const slashcmd = client.slashcmd.get(commandName);
             interaction.reply({content: "Error occourred, cant run this command."})
         }
         }
-        
 }

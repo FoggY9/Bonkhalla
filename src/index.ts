@@ -80,7 +80,7 @@ let check = () => {
 // Bot launching
 function runBot() {
 // Creating bot
-const client:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,  GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.DirectMessages, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
+const client:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,  GatewayIntentBits.GuildVoiceStates], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
 // Login With Token
 client.login(process.env['TOKEN']);
@@ -95,13 +95,12 @@ client.on('ready', ()=>{
 client.jointocreatemap = new Map();
 
 // handlers
-client.commands = new Collection();
 client.events = new Collection();
 client.slashcmd = new Collection();
 
 
 // Run handler Files
-['command_handler', 'event_handler', 'crash_handler' , 'slashcmd_handler'].forEach(handler =>{
+['event_handler', 'crash_handler' , 'slashcmd_handler'].forEach(handler =>{
   
   let handlr = require(`./handlers/${handler}`)
   handlr.default(client)
