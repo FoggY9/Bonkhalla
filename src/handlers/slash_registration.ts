@@ -147,7 +147,7 @@ export default async(client:any) =>{
     }
     )
     commands.create({
-        name: 'bot status',
+        name: 'botstatus',
         description: 'check bot status'
     })
     commands.create({
@@ -170,13 +170,13 @@ export default async(client:any) =>{
         type: ApplicationCommandType.ChatInput,
         options: [
             {
-                name: 'Role',
-                description: 'targeted role',
+                name: 'role',
+                description: 'select targeted role',
                 required: true,
                 type:  ApplicationCommandOptionType.Role
             },
             {
-                name: 'Content',
+                name: 'content',
                 description: 'give your message here',
                 required: true,
                 type:  ApplicationCommandOptionType.String
