@@ -9,7 +9,7 @@ export const run = (client:any, interaction:any) => {
     .addFields([
         {name:'• Give clan role', value:`/add`},
         {name:'• Remove clan role', value:`/remove`},
-        {name:'• Leave clan', value:'/leaveclan'},
+        {name:'• Leave clan (clear clan roles)', value:'/leaveclan'},
         {name:'• ADMIN Commands', value:'/send, /dmstaffs'}
       ])
     .setFooter({text: 'Brawlhalla Bangladesh', iconURL: 'https://i.imgur.com/tZ2sJum.png'})

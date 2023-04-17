@@ -48,7 +48,7 @@ export const run = (client:any, interaction:any, options:any) => {
   else if(targetClan == 'str') var target = str;
   else if(targetClan == 'tcu') var target = tcu;
   else if(targetClan == 'bra') var target = bra;
-  else{ return interaction.reply({content: 'cant find the clan \n Usage: *^claninfo <prefix>* \n first 3 letter of a clan name is its prefix.', ephemeral: false})}
+  else{ return interaction.reply({content: 'error', ephemeral: true})}
   
   // Get Clan Name
   embed.setTitle(target.name)

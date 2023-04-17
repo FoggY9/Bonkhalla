@@ -97,10 +97,11 @@ client.jointocreatemap = new Map();
 // handlers
 client.events = new Collection();
 client.slashcmd = new Collection();
+client.buttons = new Collection();
 
 
 // Run handler Files
-['event_handler', 'crash_handler' , 'slashcmd_handler'].forEach(handler =>{
+['event_handler', 'crash_handler' , 'slashcmd_handler', 'button_handler'].forEach(handler =>{
   
   let handlr = require(`./handlers/${handler}`)
   handlr.default(client)
