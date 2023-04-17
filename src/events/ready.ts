@@ -36,6 +36,6 @@ checkvcs();
 setInterval(checkvcs, 10000);
 
 
-require(`../handlers/slash_registration`).default(client)
+//require(`../handlers/slash_registration`).default(client)
 
     }

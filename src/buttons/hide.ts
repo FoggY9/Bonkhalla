@@ -1,3 +1,4 @@
+import { PermissionsBitField } from "discord.js";
 
 export const name = 'hidevc';
 export const run = (client:any, interaction:any) => {
@@ -7,7 +8,13 @@ export const run = (client:any, interaction:any) => {
     
 
 
-    //change averyone permission
+    //change everyone permission
+    interaction.member.voice.channel.permissionOverwrites.set([
+        {
+          id: interaction.guild.roles.everyone.id,
+          deny: [PermissionsBitField.Flags.ViewChannel]
+        }
+      ]);
     //remove view
     interaction.reply({
         content: "yamete kudasai",

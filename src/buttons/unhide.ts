@@ -1,3 +1,4 @@
+import { PermissionsBitField } from "discord.js";
 
 export const name = 'unhidevc';
 export const run = (client:any, interaction:any) => {
@@ -5,7 +6,13 @@ export const run = (client:any, interaction:any) => {
 if(client.jointocreatemap.get(`tempvc_${interaction.member.voice.channel.id}`)[1] !== interaction.member.id) return interaction.reply({content: 'you dont have the ownership', ephemeral:true})
 
 
-    //change averyone permission
+    //change everyone permission
+    interaction.member.voice.channel.permissionOverwrites.set([
+        {
+          id: interaction.guild.roles.everyone.id,
+          allow: [PermissionsBitField.Flags.ViewChannel]
+        }
+      ]);
     //add view
     interaction.reply({
         content: "yamete kudasai",

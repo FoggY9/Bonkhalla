@@ -25,8 +25,8 @@ export default (client:any, oldState:any, newState:any) => {
       if(oldState.member.id == client.user.id) setTimeout(() => {joinvc();}, 2000) //if bot is dc's
 
       // if has vc record
-      if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[0]) {
-        let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[0]);
+      if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)) {
+        let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)![0]);
         if (vc.members.size < 1) { 
           client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
            client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
@@ -44,8 +44,8 @@ export default (client:any, oldState:any, newState:any) => {
   // Moved vc >> changed vc || leaving
    if (oldState.channel && newState.channel && oldState.channel !== newState.channel) {
           // if has vc record
-        if (client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[0]) {
-             let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[0]);
+        if (client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)) {
+             let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)![0]);
                 if (vc.members.size < 1)
                  { client.jointocreatemap.delete(`tempvc_${oldState.channel.id}`); 
                   client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})

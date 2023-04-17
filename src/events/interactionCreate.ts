@@ -11,7 +11,7 @@ const slashcmd = client.slashcmd.get(commandName);
 
         } catch (error) {
             console.error(error);
-            interaction.reply({content: "Error occourred, cant run this command."})
+            interaction.reply({content: "Error occourred, cant run this command.", ephemeral: true})
         }
         }
     }else if(interaction.isButton()){
@@ -27,7 +27,7 @@ const slashcmd = client.slashcmd.get(commandName);
 
         } catch (error) {
             console.error(error);
-            interaction.reply({content: "Error occourred, cant run this command."})
+            interaction.reply({content: "Error occourred, cant run this command.", ephemeral: true})
         }
         } 
     }
