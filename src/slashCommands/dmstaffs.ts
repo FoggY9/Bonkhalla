@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "discord.js";
-export const name = 'dm staffs';
+export const name = 'dmstaffs';
 export const run = async(client:any, interaction:any, options:any) => {
 
 

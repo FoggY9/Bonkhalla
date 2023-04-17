@@ -1,8 +1,8 @@
 
 export const name = 'mutevc';
 export const run = (client:any, interaction:any) => {
-        // check if he is in vc
-    // check if he has os
+// if donot have ownership
+if(client.jointocreatemap.get(`tempvc_${interaction.member.voice.channel.id}`)[1] !== interaction.member.id) return interaction.reply({content: 'you dont have the ownership', ephemeral:true})
 
     interaction.reply({
         content: "yamete kudasai",

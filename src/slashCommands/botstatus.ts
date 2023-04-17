@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 
-export const name = 'bot status';
+export const name = 'botstatus';
 export const run = (client:any, interaction:any) => {
     
     let seconds = Math.floor(client.uptime / 1000);

@@ -21,7 +21,8 @@ const slashcmd = client.slashcmd.get(commandName);
 
     if (button){
         try {
-            if(interaction.member.voice.parentId !== '751266531597353040') return interaction.reply({content: 'you are not in a temp vc'})
+            // check if the interactor joined a vc & the joined channel is recorded as a temp vc
+            if(!interaction.member.voice && !client.jointocreatemap.get(`tempvc_${interaction.member.voice.channel.id}`)) return interaction.reply({content: 'you are not in a temp vc', ephemeral: true})
             button.run(client, interaction);
 
         } catch (error) {
