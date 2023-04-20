@@ -27,14 +27,16 @@ export default (client:any, oldState:any, newState:any) => {
       // if has vc record
       if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)) {
         let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[0]);
-        if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[1] == oldState.member.id){
-          client.jointocreatemap.set(`tempvc_${oldState.channel.id}`, [oldState.channel.id, oldState.channel.members.entries().next().value[0]])
-        }
+
         if (vc.members.size < 1) { 
           client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
            client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
           return oldState.channel.delete()
           .catch((err:any) => console.log(err)); 
+      }else{
+        if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[1] == oldState.member.id){
+          client.jointocreatemap.set(`tempvc_${oldState.channel.id}`, [oldState.channel.id, oldState.channel.members.entries().next().value[0]])
+        }
       }
     }
       // if its a temp vc
@@ -49,14 +51,16 @@ export default (client:any, oldState:any, newState:any) => {
           // if has vc record
         if (client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)) {
              let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)![0]);
-             if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[1] == oldState.member.id){
-              client.jointocreatemap.set(`tempvc_${oldState.channel.id}`, [oldState.channel.id, oldState.channel.members.entries().next().value[0]])
-            }
+
                 if (vc.members.size < 1)
                  { client.jointocreatemap.delete(`tempvc_${oldState.channel.id}`); 
                   client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
             return vc.delete()
             .catch((err:any) => console.log(err)); 
+        }else{
+          if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[1] == oldState.member.id){
+            client.jointocreatemap.set(`tempvc_${oldState.channel.id}`, [oldState.channel.id, oldState.channel.members.entries().next().value[0]])
+          }
         }
         }
           // if its a temp vc
