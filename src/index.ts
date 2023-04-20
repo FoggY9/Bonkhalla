@@ -1,3 +1,4 @@
+const dev = false;
 
   // Necessary things to Import
   import { Client, Collection, GatewayIntentBits } from 'discord.js';
@@ -10,8 +11,10 @@
   let spectatorBotId:string;
   let interval:any;
 
+  if(dev){runBot()}
+  else{
 // login to spectator account
-const spectatorClient:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,
+var spectatorClient:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,
   GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildVoiceStates], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
   // Login With Token
@@ -76,7 +79,7 @@ let check = () => {
     else if (vcMembers.size == 1 || vcMembers.size == 0){run();} 
   }
 } 
-
+  }
 // Bot launching
 function runBot() {
 // Creating bot
@@ -88,7 +91,8 @@ client.login(process.env['TOKEN']);
 // destroy spectator
 client.on('ready', ()=>{
     console.log('shutting down spectator')
-    spectatorClient.destroy();
+    dev? null : spectatorClient.destroy();
+    
 })
 
 // Vc Record Map 
@@ -98,10 +102,11 @@ client.jointocreatemap = new Map();
 client.events = new Collection();
 client.slashcmd = new Collection();
 client.buttons = new Collection();
+client.menus = new Collection();
 
 
 // Run handler Files
-['event_handler', 'crash_handler' , 'slashcmd_handler', 'button_handler'].forEach(handler =>{
+['event_handler', 'crash_handler' , 'slashcmd_handler', 'button_handler', 'menu_handler'].forEach(handler =>{
   
   let handlr = require(`./handlers/${handler}`)
   handlr.default(client)

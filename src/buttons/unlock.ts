@@ -11,11 +11,11 @@ if(client.jointocreatemap.get(`tempvc_${interaction.member.voice.channel.id}`)[1
           id: interaction.guild.roles.everyone.id,
           allow: [PermissionsBitField.Flags.Connect]
         }
-      ]);
-    //add join
-    interaction.reply({
-        content: "yamete kudasai",
-        ephemeral: true
-    })
+      ]).then(()=> {
+        interaction.reply({
+          content: "Your channel has Unlocked",
+          ephemeral: true
+      })
+      })
     
 }

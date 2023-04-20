@@ -14,11 +14,13 @@ export const run = (client:any, interaction:any) => {
           id: interaction.guild.roles.everyone.id,
           deny: [PermissionsBitField.Flags.ViewChannel]
         }
-      ]);
+      ]).then(()=> {
+        interaction.reply({
+          content: "Your channel is hidden",
+          ephemeral: true
+      })
+      })
     //remove view
-    interaction.reply({
-        content: "yamete kudasai",
-        ephemeral: true
-    })
+
     
 }

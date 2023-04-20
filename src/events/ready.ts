@@ -29,11 +29,14 @@ function checkvcs() {
         if (cnl.name == 'Custom Lobby' || cnl.name == '2v2 Lobby' || cnl.name == '1v1 Lobby') {
      if (cnl.members.size < 1) { 
             return cnl.delete().catch((err:string) => console.log(err)); 
-       }}
+       }else if(cnl.members.size > 0){
+        client.jointocreatemap.set(`tempvc_${cnl.id}`, [cnl.id, cnl.members.entries().next().value[0]])
+       }
+    
+    }
      });
 }
 checkvcs();
-setInterval(checkvcs, 10000);
 
 
 //require(`../handlers/slash_registration`).default(client)

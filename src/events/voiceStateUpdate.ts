@@ -22,11 +22,14 @@ export default (client:any, oldState:any, newState:any) => {
   
   // If Leaves Vc
     if (oldState.channel !== newState.channel && newState.channel === null) {
-      if(oldState.member.id == client.user.id) setTimeout(() => {joinvc();}, 2000) //if bot is dc's
+      if(oldState.member.id == client.user.id) {joinvc()} //if bot is dc's
 
       // if has vc record
       if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)) {
-        let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)![0]);
+        let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[0]);
+        if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[1] == oldState.member.id){
+          client.jointocreatemap.set(`tempvc_${oldState.channel.id}`, [oldState.channel.id, oldState.channel.members.entries().next().value[0]])
+        }
         if (vc.members.size < 1) { 
           client.jointocreatemap.delete(`tempvc_${oldState.guild.id}_${oldState.channel.id}`); 
            client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
@@ -46,6 +49,9 @@ export default (client:any, oldState:any, newState:any) => {
           // if has vc record
         if (client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)) {
              let vc = oldState.guild.channels.cache.get(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)![0]);
+             if(client.jointocreatemap.get(`tempvc_${oldState.channel.id}`)[1] == oldState.member.id){
+              client.jointocreatemap.set(`tempvc_${oldState.channel.id}`, [oldState.channel.id, oldState.channel.members.entries().next().value[0]])
+            }
                 if (vc.members.size < 1)
                  { client.jointocreatemap.delete(`tempvc_${oldState.channel.id}`); 
                   client.channels.cache.get('955447531716878427').send({content: ` :: ${oldState.member.user.username}#${oldState.member.user.discriminator} :: Room deleted`})
@@ -71,8 +77,7 @@ export default (client:any, oldState:any, newState:any) => {
    user.guild.channels.create({name: name, type: ChannelType.GuildVoice, parent: Category, userLimit: userlimit, rtcRegion: 'singapore'})
     .then((vc:any) => {
       client.jointocreatemap.set(`tempvc_${vc.id}`, [vc.id, user.member.id]);
-      try { user.setChannel(vc);}
-      catch (error) {setTimeout(() => {checkVc(vc)}, 1000 * 2);}
+     user.setChannel(vc).catch(()=> checkVc(vc))
 
     }).catch((err:string) => console.log(err));
   }

@@ -14,8 +14,7 @@ let embed = new EmbedBuilder()
 .addFields([
     {name: '| Average Bot Ping |', value:`| ${Math.round(client.ws.ping)} ms |`, inline: true },
     {name: '| Uptime |', value: `| ${days}d, ${hours}h, ${minutes}m |`, inline: true },
-    {name: '| Uptime |', value:`| ${days}d, ${hours}h, ${minutes}m |`, inline: true },
-    {name: '| Total Commands |', value:`| ${client.commands.size} |`, inline: true }])
+    {name: '| Total Commands |', value:`| ${client.slashcmd.size} |`, inline: true }])
 .setFooter({text: 'Brawlhalla Bangladesh', iconURL: 'https://i.imgur.com/tZ2sJum.png'})
 .setTimestamp()
 

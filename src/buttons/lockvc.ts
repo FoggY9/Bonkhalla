@@ -3,7 +3,8 @@ import { PermissionsBitField } from "discord.js";
 export const name = 'lockvc';
 export const run = (client:any, interaction:any) => {
 // if donot have ownership
-if(client.jointocreatemap.get(`tempvc_${interaction.member.voice.channel.id}`)[1] !== interaction.member.id) return interaction.reply({content: 'you dont have the ownership', ephemeral:true})
+let tempvc = client.jointocreatemap.get(`tempvc_${interaction.member.voice.channel.id}`)
+if(tempvc[1] !== interaction.member.id) return interaction.reply({content: 'you dont have the ownership', ephemeral:true})
 
     //change everyone permission
 
@@ -12,12 +13,11 @@ interaction.member.voice.channel.permissionOverwrites.set([
       id: interaction.guild.roles.everyone.id,
       deny: [PermissionsBitField.Flags.Connect]
     }
-  ]);
-
-    //remove join
+  ]).then(()=> {
     interaction.reply({
-        content: "yamete kudasai",
-        ephemeral: true
-    })
+      content: "Your channel is Locked",
+      ephemeral: true
+  })
+  })
     
 }

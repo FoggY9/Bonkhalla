@@ -12,11 +12,11 @@ if(client.jointocreatemap.get(`tempvc_${interaction.member.voice.channel.id}`)[1
           id: interaction.guild.roles.everyone.id,
           allow: [PermissionsBitField.Flags.ViewChannel]
         }
-      ]);
-    //add view
-    interaction.reply({
-        content: "yamete kudasai",
-        ephemeral: true
-    })
+      ]).then(()=> {
+        interaction.reply({
+          content: "Your channel is not hidden anymore",
+          ephemeral: true
+      })
+      })
     
 }
