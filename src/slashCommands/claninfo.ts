@@ -59,7 +59,7 @@ export const run = (client:any, interaction:any, options:any) => {
     {memberList.push(mmbr.id)})
   
   // Mark Leaders
-  let leaderString = '';
+  let leaderString = ' ';
   targetRole.members.forEach((mmbr:any) => {
   
   if(mmbr.roles.cache.has('851722247206600704')){ leaderString = leaderString + ` <@!${mmbr.id}>`}
@@ -71,7 +71,7 @@ export const run = (client:any, interaction:any, options:any) => {
       embed.addFields({name:'• Clan Leaders', value:leaderString})
     }
   // Mark Members
-  let memberString = '';
+  let memberString = ' ';
   memberList.forEach(element => {
     memberString = memberString + ` <@!${element}>`;
   });
