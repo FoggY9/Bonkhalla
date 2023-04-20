@@ -1,4 +1,4 @@
-const dev = true;
+const dev = false;
 
   // Necessary things to Import
   import { Client, Collection, GatewayIntentBits } from 'discord.js';
