@@ -1,4 +1,4 @@
-const dev = false;
+const dev = true;
 
   // Necessary things to Import
   import { Client, Collection, GatewayIntentBits } from 'discord.js';
@@ -83,7 +83,7 @@ let check = () => {
 // Bot launching
 function runBot() {
 // Creating bot
-const client:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,  GatewayIntentBits.GuildVoiceStates], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
+const client:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
 // Login With Token
 client.login(process.env['TOKEN']);

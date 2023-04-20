@@ -1,5 +1,6 @@
 
 export default async(client:any, interaction:any) => {
+    await interaction.deferReply();
     if (interaction.isChatInputCommand()) {
         const { commandName, options } = interaction;
 
