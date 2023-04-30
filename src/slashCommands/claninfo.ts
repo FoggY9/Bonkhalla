@@ -23,15 +23,15 @@ export const run = (client:any, interaction:any, options:any) => {
     }
   }
   // Clan Info's as Objects
-  let bed = new Clan('Bedroom Community [SEA]','851302141499015208','https://cdn.discordapp.com/icons/869217076466835506/c4593d64d987054def3c427ad9de330a.webp?size=96','74','https://discord.gg/Xq67vfWmzT','Winner of BBO Clan Battle Season One!');
-  let per = new Clan('Persistence [SEA]','877450177991020584','','','','Winner of BBO Clan Battle Season two!');
+  let bed = new Clan('Bedroom Community [SEA]','851302141499015208','https://cdn.discordapp.com/icons/869217076466835506/c4593d64d987054def3c427ad9de330a.webp?size=96','74','https://discord.gg/Xq67vfWmzT','Winner of BBO Clan Battle S1');
+  let per = new Clan('Persistence [SEA]','877450177991020584','','','','Winner of BBO Clan Battle S2');
   let khu = new Clan('Khudarto [SEA]','850939055872147456','','','','');
   let fiv = new Clan('Five Fingers n Extra [SEA]','799676323948920902','','','','');
-  let _7t1 = new Clan('7t1 Bangladesh [SEA]','772444761906348052','https://media.discordapp.net/attachments/903874086160191493/982970626694316032/5_METALIC.jpg','82','https://discord.gg/PUSNgnCVjR', '');
-  let azu = new Clan('Azure Spirit [SEA]','838085789841752134','https://media.discordapp.net/attachments/871427142808916048/1007612767555039262/unknown.png?width=294&height=282','100','https://discord.gg/mFB59MeuKf','Partnered Server');
+  let _7t1 = new Clan('7t1 Bangladesh [SEA]','772444761906348052','https://media.discordapp.net/attachments/903874086160191493/982970626694316032/5_METALIC.jpg','90','https://discord.gg/PUSNgnCVjR', '');
+  let azu = new Clan('Azure Spirit [SEA]','838085789841752134','https://media.discordapp.net/attachments/871427142808916048/1007612767555039262/unknown.png?width=294&height=282','100','https://discord.gg/mFB59MeuKf','Partnered Server & Winner of BBO Clan Battle S3');
   let str = new Clan('Strawberry Fields [SEA]','1000623144786198548','','31+','','');
   let tcu = new Clan('TCU GANG [SEA]','1007257584228646974','','','','')
-  let bra = new Clan('Brawler of the Dead [SEA]','1020366730184380446','','31+','','')
+  let xun = new Clan('XUnbeatablesX [SEA]','1101598854719209624','https://cdn.discordapp.com/attachments/981636343677481000/1101798224706158662/Untitled-1.jpg','56+','https://discord.gg/a5DzpUBBxb','')
   
   
   // Created Embed
@@ -47,7 +47,7 @@ export const run = (client:any, interaction:any, options:any) => {
   else if(targetClan == 'azu') var target = azu;
   else if(targetClan == 'str') var target = str;
   else if(targetClan == 'tcu') var target = tcu;
-  else if(targetClan == 'bra') var target = bra;
+  else if(targetClan == 'xun') var target = xun;
   else{ return interaction.reply({content: 'error', ephemeral: true})}
   
   // Get Clan Name

@@ -39,6 +39,6 @@ function checkvcs() {
 checkvcs();
 
 
-//require(`../handlers/slash_registration`).default(client)
+require(`../handlers/slash_registration`).default(client)
 
     }
