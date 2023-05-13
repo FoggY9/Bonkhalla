@@ -3,7 +3,10 @@ export default (client:any) => {
          console.log(' [antiCrash] :: Unhandled Rejection/Catch');
          console.log(reason, p);
      });
-     process.on("uncaughtException", (err, origin) => {
+     process.on("uncaughtException", (err:any, origin) => {
+if(err.errno == -3008){
+    process.exit(0)
+}
          console.log(' [antiCrash] :: Uncaught Exception/Catch');
          console.log(err, origin);
      }) 
