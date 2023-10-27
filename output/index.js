@@ -53,8 +53,6 @@ else {
             isAlive = false;
         }
         if (isAlive) {
-            presence.destroy();
-            isAlive.destroy();
             return;
         }
         else if (!isAlive) {
