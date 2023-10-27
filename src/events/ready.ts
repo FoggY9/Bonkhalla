@@ -14,7 +14,7 @@ export default async(client:any) => {
 
 async function joinvc(){
 let channel = client.channels.cache.get('751266537645801663')
-var guild = client.guilds.cache.get('747565321745072359')
+const guild = client.guilds.cache.get('747565321745072359')
         joinVoiceChannel({
         channelId: channel.id,
         guildId: guild.id,

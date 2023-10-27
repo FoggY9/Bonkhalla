@@ -2,7 +2,7 @@ const dev = false;
 
   // Necessary things to Import
   import { Client, Collection, GatewayIntentBits } from 'discord.js';
-  const { joinVoiceChannel } = require('@discordjs/voice');
+  import { joinVoiceChannel } from '@discordjs/voice';
 
   import dotenv from 'dotenv';
   
@@ -11,14 +11,14 @@ const dev = false;
   let spectatorBotId:string;
   let interval:any;
 
-  if(dev){runBot()}
+  if(dev){runBot('')}
   else{
 // login to spectator account
-var spectatorClient:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,
+let spectatorClient:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers,
   GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildVoiceStates], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
   // Login With Token
-spectatorClient.login(process.env['SPEC_TOKEN']);
+spectatorClient.login(process.env['SPEC_TOKEN']).catch((err:any)=>{process.exit()});
 
 // Spectator on Ready
 spectatorClient.once('ready', (c:any)=>{
@@ -36,17 +36,19 @@ spectatorClient.once('ready', (c:any)=>{
   console.log('Started watching Bonkhalla, Priority: ' + myPriority)
 
   // Checking interval
-  setTimeout(() => {
+
     interval = setInterval(() => {
       check()
-    }, 1_000);
-  }, 10_000);
+    }, 10_000);
+
 
 })
+//neverdie, try
+require(`./handlers/crash_handler`)
 
 // Infinity Loop
 let check = () => {
-  let isAlive;
+  let isAlive:any;
   let presence = spectatorClient.guilds.cache.get('864792830673027102').members.cache.get('819227099340079145').presence;
   if(presence){
     isAlive = presence.status !== 'offline'
@@ -54,10 +56,13 @@ let check = () => {
     isAlive = false;
   }
 
-  if(isAlive){return;}
+  if(isAlive){
+    presence.destroy()
+    isAlive.destroy()
+    return;}
   else if(!isAlive){
     let run = () => {
-      runBot();
+      runBot(spectatorClient);
       spectatorClient.channels.cache.get('1095959354244603984').send({content: `${process.env['HOSTNAME']} is taking over the Host`})
       console.log('bot is offline, starting bonkhalla')
       clearInterval(interval);
@@ -81,13 +86,12 @@ let check = () => {
 } 
   }
 // Bot launching
-function runBot() {
+function runBot(spectatorClient:any) {
 // Creating bot
 const client:any = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
 // Login With Token
-client.login(process.env['TOKEN']);
-
+client.login(process.env['TOKEN']).catch((err:any)=>{process.exit()});
 // destroy spectator
 client.on('ready', ()=>{
     console.log('shutting down spectator')
@@ -106,7 +110,7 @@ client.menus = new Collection();
 
 
 // Run handler Files
-['event_handler', 'crash_handler' , 'slashcmd_handler', 'button_handler', 'menu_handler'].forEach(handler =>{
+['event_handler' , 'slashcmd_handler', 'button_handler', 'menu_handler'].forEach(handler =>{
   
   let handlr = require(`./handlers/${handler}`)
   handlr.default(client)

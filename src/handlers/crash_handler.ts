@@ -1,18 +1,21 @@
 export default (client:any) => {
-    process.on('unhandledRejection', (reason, p) => {
-         console.log(' [antiCrash] :: Unhandled Rejection/Catch');
-         console.log(reason, p);
+    process.on('unhandledRejection', (reason:any, p:any) => {
+//         console.log(' [antiCrash] :: Unhandled Rejection/Catch');
+//         console.log(reason, p);
+
+if(reason.errno == -3001){
+    process.exit()
+}
+
      });
      process.on("uncaughtException", (err:any, origin) => {
-if(err.errno == -3008){
-    process.exit(0)
-}
-         console.log(' [antiCrash] :: Uncaught Exception/Catch');
-         console.log(err, origin);
+
+       console.log(' [antiCrash] :: Uncaught Exception/Catch');
+        console.log('err:' + err,"origin:" + origin);
      }) 
      process.on('uncaughtExceptionMonitor', (err, origin) => {
-         console.log(' [antiCrash] :: Uncaught Exception/Catch (MONITOR)');
-         console.log(err, origin);
+        console.log(' [antiCrash] :: Uncaught Exception/Catch (MONITOR)');
+       console.log(err, origin);
      });
      /*process.on('multipleResolves', (type, promise, reason) => {
          console.log(' [antiCrash] :: Multiple Resolves');

@@ -13,7 +13,7 @@ let targetRole = interaction.guild.roles.cache.get(options._hoistedOptions[0].va
 if(!targetRole.members) return interaction.channel.send({content: 'nobody has this role'})
 targetRole.members.forEach((mmbr:any) => {members.push(mmbr.id)}) //adding all memberId's to an array
 
-var content = options._hoistedOptions[1].value; // the content
+const content = options._hoistedOptions[1].value; // the content
 
 for(let i = 0; i < members.length; i++){
   let user = client.users.cache.find((user:any) => user.id === members[i])

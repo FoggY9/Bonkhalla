@@ -8,7 +8,7 @@ let juj = 'a responsible mod with toxic behavior'
 let cry = 'a passive bull player [but he is friendly, unlike others]'
 
 const choosed = options._hoistedOptions[0].value
-var target:string;
+let target:string;
 if (choosed == 'red') target = red
 else if (choosed == 'fog') target = fog
 else if (choosed == 'fri') target = fri

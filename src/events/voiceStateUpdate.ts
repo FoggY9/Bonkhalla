@@ -9,6 +9,7 @@ export default (client:any, oldState:any, newState:any) => {
   const crt_custom_lobby = VcOne;
   const crt_2s_lobby = VcTwo;
   const crt_1s_lobby = VcThree;
+  const crt_room_tournament = '1163713072146432030'
   
   // delete vc if someone 
 
@@ -18,6 +19,7 @@ export default (client:any, oldState:any, newState:any) => {
       if(newState.channel.id == crt_custom_lobby){ CreateVc(newState, 'Custom Lobby', '8');}
       else if(newState.channel.id == crt_2s_lobby){CreateVc(newState, '2v2 Lobby','4');}
       else if(newState.channel.id == crt_1s_lobby){CreateVc(newState, '1v1 Lobby', '2');}
+      /* temp */else if(newState.channel.id == crt_room_tournament){CreateTourneyVc(newState, 'Tournament 1v1', '2');}
     }
   
   // If Leaves Vc
@@ -108,4 +110,22 @@ export default (client:any, oldState:any, newState:any) => {
                 adapterCreator: guild.voiceAdapterCreator
 
             })
-}  }
+}  
+
+/* temp start*/
+function CreateTourneyVc(user:any, name:string, userlimit:string){
+  
+  client.channels.cache.get('955447531716878427').send({content: `Created tourney vc:: ${user.member.user.username}#${user.member.user.discriminator} ::`})
+user.guild.channels.create({name: name, type: ChannelType.GuildVoice, parent: '1161369942239739974', userLimit: userlimit, rtcRegion: 'singapore'})
+ .then((vc:any) => {
+   client.jointocreatemap.set(`tempvc_${vc.id}`, [vc.id, user.member.id]);
+  user.setChannel(vc).catch(()=> checkVc(vc))
+
+ }).catch((err:string) => console.log(err));
+}
+/* end temp*/
+
+
+}
+
+

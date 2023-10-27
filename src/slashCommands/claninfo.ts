@@ -39,21 +39,22 @@ export const run = (client:any, interaction:any, options:any) => {
 
   let targetClan = options._hoistedOptions[0].value;
   // Get Targeted Clan
-       if(targetClan == 'bed') var target = bed;
-  else if(targetClan == 'per') var target = per;
-  else if(targetClan == 'khu') var target = khu;
-  else if(targetClan == 'fiv') var target = fiv;
-  else if(targetClan == '7t1') var target = _7t1;
-  else if(targetClan == 'azu') var target = azu;
-  else if(targetClan == 'str') var target = str;
-  else if(targetClan == 'tcu') var target = tcu;
-  else if(targetClan == 'xun') var target = xun;
+  let target;
+       if(targetClan == 'bed') target = bed;
+  else if(targetClan == 'per') target = per;
+  else if(targetClan == 'khu') target = khu;
+  else if(targetClan == 'fiv') target = fiv;
+  else if(targetClan == '7t1') target = _7t1;
+  else if(targetClan == 'azu') target = azu;
+  else if(targetClan == 'str') target = str;
+  else if(targetClan == 'tcu') target = tcu;
+  else if(targetClan == 'xun') target = xun;
   else{ return interaction.reply({content: 'error', ephemeral: true})}
   
   // Get Clan Name
   embed.setTitle(target.name)
   // Get all clan members
-  var memberList:string[] = [];
+  let memberList:string[] = [];
   let targetRole = interaction.guild.roles.cache.get(target.clanid);
   targetRole.members.forEach((mmbr:any) => 
     {memberList.push(mmbr.id)})

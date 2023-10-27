@@ -16,7 +16,7 @@ if(interaction.guild.roles.cache.get(Mod)){interaction.guild.roles.cache.get(Mod
 //added memberid's to an array
 
 let allstaffs = [...new Set(staffs)]; //removing duplicates
-var content = options._hoistedOptions[0].value;
+const content = options._hoistedOptions[0].value;
 
 
 let sendx:string[] = [];

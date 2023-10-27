@@ -20,17 +20,18 @@ export const run = (client:any, interaction:any, options:any) => {
     
     let targetClanPrefix = options._hoistedOptions[0].value;
     let targetId = options._hoistedOptions[1].value;
-
-        if(targetClanPrefix == 'Bedroom Community') var target = Bedroom_Community;
-        else if(targetClanPrefix == 'Persistence') var target = Persistence;
-        else if(targetClanPrefix == 'Khudarto') var target = Khudarto;
-        else if(targetClanPrefix == 'Five Finger N Extra') var target = Five_Finger_N_Extra;
-        else if(targetClanPrefix == '7t1 Bangladesh') var target = _7t1_Bangladesh;
-        else if(targetClanPrefix == 'Azure Spirit') var target = Azure_Spirit;
-        else if(targetClanPrefix == 'Strawberry Field') var target = Strawberry_Field;
-        else if(targetClanPrefix == 'Bad 2v2 Players') var target = Bad_2v2_Players;
-        else if(targetClanPrefix == 'TCU GANG') var target = tcu;
-        else if(targetClanPrefix == 'XUnbeatablesX') var target = XUnbeatablesX;
+    let target:string;
+    
+        if(targetClanPrefix == 'Bedroom Community') target = Bedroom_Community;
+        else if(targetClanPrefix == 'Persistence') target = Persistence;
+        else if(targetClanPrefix == 'Khudarto') target = Khudarto;
+        else if(targetClanPrefix == 'Five Finger N Extra') target = Five_Finger_N_Extra;
+        else if(targetClanPrefix == '7t1 Bangladesh') target = _7t1_Bangladesh;
+        else if(targetClanPrefix == 'Azure Spirit') target = Azure_Spirit;
+        else if(targetClanPrefix == 'Strawberry Field') target = Strawberry_Field;
+        else if(targetClanPrefix == 'Bad 2v2 Players') target = Bad_2v2_Players;
+        else if(targetClanPrefix == 'TCU GANG') target = tcu;
+        else if(targetClanPrefix == 'XUnbeatablesX') target = XUnbeatablesX;
 
 let accessDn = new EmbedBuilder().setColor('#FF0000').setDescription(`❌ **|** ${interaction.user} You can't remove roles of members, you dont have permission \nrequired-role: **Clan Leader**`)
 
@@ -38,7 +39,7 @@ if(!interaction.member.roles.cache.has(LeaderRoleId)){
     return interaction.reply({embeds: [accessDn], ephemeral: false})
 }
 
-var membr = interaction.guild.members.cache.get(targetId)
+const membr = interaction.guild.members.cache.get(targetId)
 let alrdyhas = new EmbedBuilder().setColor('#808080').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** doesn't has this clan role`)
 let done = new EmbedBuilder().setColor('#0000FF').setDescription(`🔵 **|** **${membr.user.username + '#' + membr.user.discriminator}** has removed **${options._hoistedOptions[0].value}** Clan Role`).setTimestamp()
 .setFooter({ text: `action by ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' })

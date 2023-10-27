@@ -22,16 +22,17 @@ export const run = (client:any, interaction:any, options:any) => {
     let targetId = options._hoistedOptions[1].value;
 
     // Target Define
-        if(targetClanPrefix == 'Bedroom Community') var target = Bedroom_Community;
-        else if(targetClanPrefix == 'Persistence') var target = Persistence;
-        else if(targetClanPrefix == 'Khudarto') var target = Khudarto;
-        else if(targetClanPrefix == 'Five Finger N Extra') var target = Five_Finger_N_Extra;
-        else if(targetClanPrefix == '7t1 Bangladesh') var target = _7t1_Bangladesh;
-        else if(targetClanPrefix == 'Azure Spirit') var target = Azure_Spirit;
-        else if(targetClanPrefix == 'Strawberry Field') var target = Strawberry_Field;
-        else if(targetClanPrefix == 'Bad 2v2 Players') var target = Bad_2v2_Players;
-        else if(targetClanPrefix == 'TCU GANG') var target = tcu;
-        else if(targetClanPrefix == 'XUnbeatablesX') var target = xun;
+    let target:string;
+        if(targetClanPrefix == 'Bedroom Community') target = Bedroom_Community;
+        else if(targetClanPrefix == 'Persistence') target = Persistence;
+        else if(targetClanPrefix == 'Khudarto') target = Khudarto;
+        else if(targetClanPrefix == 'Five Finger N Extra') target = Five_Finger_N_Extra;
+        else if(targetClanPrefix == '7t1 Bangladesh') target = _7t1_Bangladesh;
+        else if(targetClanPrefix == 'Azure Spirit') target = Azure_Spirit;
+        else if(targetClanPrefix == 'Strawberry Field') target = Strawberry_Field;
+        else if(targetClanPrefix == 'Bad 2v2 Players') target = Bad_2v2_Players;
+        else if(targetClanPrefix == 'TCU GANG') target = tcu;
+        else if(targetClanPrefix == 'XUnbeatablesX') target = xun;
         
 
         // If dont have 'clan leader' role
@@ -41,7 +42,7 @@ export const run = (client:any, interaction:any, options:any) => {
             if(!interaction.member.roles.cache.has(LeaderRoleId)) return interaction.reply({embeds: [accessDn], ephemeral: false})
 
         // seting vars and embeds
-            var membr = interaction.guild.members.cache.get(targetId)
+            const membr = interaction.guild.members.cache.get(targetId)
             let alrdyhas = new EmbedBuilder().setColor('#FFFF00').setDescription(`🟡 **|** **${membr.user.username + '#'+ membr.user.discriminator}** already has this clan role`)
             let done = new EmbedBuilder().setColor('#00FF00').setDescription(`🟢 **|** **${membr.user.username + '#' + membr.user.discriminator}** has added **${options._hoistedOptions[0].value}** Clan Role`).setTimestamp()
             .setFooter({ text: `action by ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: 'https://i.imgur.com/tZ2sJum.png' })
